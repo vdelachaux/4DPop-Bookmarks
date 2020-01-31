@@ -3,8 +3,12 @@
   // Method : EDIT
   // Created 25/01/07 by vdl
   // ----------------------------------------------------
+
+  // Modified by: 保坂圭是 (2020/01/28)
+
 C_LONGINT:C283($Lon_bottom;$Lon_currentWindow;$Lon_left;$Lon_process;$Lon_right;$Lon_top)
 C_TEXT:C284($Dom_position;$Dom_pref;$kTxt_currentForm;$kTxt_ToolName;$Txt_xml;$Txt_currentMethod)
+C_OBJECT:C1216($bookmerk_file;$defaultBookmerk_file)
 
 $Txt_currentMethod:=Current method name:C684
 $kTxt_currentForm:="EDIT"
@@ -20,8 +24,20 @@ Else
 	
 	MENUS_main ("Install")
 	
-	  //get the window position if any {
-	$Txt_xml:=4DPop_preferenceLoad ($kTxt_ToolName)
+	  // Get the window position if any {
+	  //4DPop_preferenceLoad ($kTxt_ToolName)
+	$bookmerk_file:=File:C1566(Get 4D folder:C485+"4DPop_Bookmarks.xml";fk platform path:K87:2)
+	
+	If ($bookmerk_file.exists=False:C215)
+		
+		$defaultBookmerk_file:=File:C1566(Get localized document path:C1105("DefaultBookmarks.xml");fk platform path:K87:2)
+		$Txt_xml:=$defaultBookmerk_file.getText()
+		
+	Else 
+		
+		$Txt_xml:=$bookmerk_file.getText()
+		
+	End if 
 	
 	$Dom_pref:=DOM Parse XML variable:C720($Txt_xml)
 	
@@ -75,7 +91,7 @@ Else
 	
 	DIALOG:C40($kTxt_currentForm)
 	
-	  //store the window position {
+	  // Store the window position {
 	GET WINDOW RECT:C443($Lon_left;$Lon_top;$Lon_right;$Lon_bottom;$Lon_currentWindow)
 	
 	$Dom_position:=DOM Find XML element:C864($Dom_pref;"preference/BookMarks/edit.window")
@@ -96,7 +112,9 @@ Else
 		
 		If (OK=1)
 			
-			4DPop_preferenceStore ($kTxt_ToolName;$Dom_pref)
+			DOM EXPORT TO FILE:C862($Dom_pref;$bookmerk_file.platformPath)
+			
+			  //4DPop_preferenceStore ($kTxt_ToolName;$Dom_pref)
 			
 		End if 
 	End if 

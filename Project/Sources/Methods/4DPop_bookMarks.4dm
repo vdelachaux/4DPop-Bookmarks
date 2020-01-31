@@ -3,6 +3,9 @@
   // Method : 4DPop_bookMarks
   // Created 25/01/07 by vdl
   // ----------------------------------------------------
+
+  // Modified by: 保坂圭是 (2020/01/28)
+
 C_POINTER:C301($1)
 
 C_BOOLEAN:C305($Boo_dummy)
@@ -26,14 +29,14 @@ End if
 
 $Mnu_main:=Create menu:C408
 
-If (True:C214)  //Current folders
+If (True:C214)  // Current folders
 	
 	$Mnu_current:=Create menu:C408
 	APPEND MENU ITEM:C411($Mnu_main;":xliff:MenuscurrentFolders";$Mnu_current)
 	SET MENU ITEM ICON:C984($Mnu_main;-1;"#images/8.png")
 	RELEASE MENU:C978($Mnu_current)
 	
-	If (True:C214)  //Database
+	If (True:C214)  // Database
 		
 		$Mnu_database:=Create menu:C408
 		APPEND MENU ITEM:C411($Mnu_current;":xliff:Menusdatabase";$Mnu_database)
@@ -41,11 +44,12 @@ If (True:C214)  //Current folders
 		RELEASE MENU:C978($Mnu_database)
 		
 		APPEND MENU ITEM:C411($Mnu_database;":xliff:MenusdatabaseFolder")
-		SET MENU ITEM PARAMETER:C1004($Mnu_database;-1;4DPop_hostDatabaseFolder (kRoot))
+		$Txt_path:=Folder:C1567(fk database folder:K87:14;*).platformPath  // 4DPop_hostDatabaseFolder (kRoot))
+		SET MENU ITEM PARAMETER:C1004($Mnu_database;-1;$Txt_path)
 		SET MENU ITEM ICON:C984($Mnu_database;-1;"#images/8.png")
 		
 		APPEND MENU ITEM:C411($Mnu_database;":xliff:Menuspreferences")
-		$Txt_path:=4DPop_hostDatabaseFolder (kPreferences)
+		$Txt_path:=Folder:C1567(fk database folder:K87:14;*).folder("Settings").platformPath  // 4DPop_hostDatabaseFolder (kPreferences)
 		SET MENU ITEM PARAMETER:C1004($Mnu_database;-1;$Txt_path)
 		SET MENU ITEM ICON:C984($Mnu_database;-1;"#images/8.png")
 		
@@ -60,7 +64,7 @@ If (True:C214)  //Current folders
 		  //AJOUTER LIGNE MENU($Mnu_database;":xliff:Menusresources")
 		  //FIXER PARAMETRE LIGNE MENU($Mnu_database;-1;4DPop_hostDatabaseFolder (kResources))
 		  //FIXER ICONE LIGNE MENU($Mnu_database;-1;"#images/8.png")
-		$Txt_path:=4DPop_hostDatabaseFolder (kResources)
+		$Txt_path:=Folder:C1567(fk resources folder:K87:11;*).platformPath  // 4DPop_hostDatabaseFolder(kResources)
 		$Mnu_folders:=Create menu:C408
 		FOLDER LIST:C473($Txt_path;$tTxt_folders)
 		
@@ -99,7 +103,7 @@ If (True:C214)  //Current folders
 			
 		End if 
 		
-		$Txt_path:=4DPop_hostDatabaseFolder (kComponents)
+		$Txt_path:=Folder:C1567(fk database folder:K87:14;*).folder("Components").platformPath  // 4DPop_hostDatabaseFolder(kComponents)
 		
 		If (Test path name:C476($Txt_path)=Is a folder:K24:2)
 			
@@ -114,7 +118,7 @@ If (True:C214)  //Current folders
 		SET MENU ITEM PARAMETER:C1004($Mnu_database;-1;$Txt_path)
 		SET MENU ITEM ICON:C984($Mnu_database;-1;"#images/8.png")
 		
-		$Txt_path:=4DPop_hostDatabaseFolder (kLogs)
+		$Txt_path:=Folder:C1567(fk database folder:K87:14;*).folder("Logs").platformPath  // 4DPop_hostDatabaseFolder(kLogs)
 		APPEND MENU ITEM:C411($Mnu_database;":xliff:Menuslogs")
 		SET MENU ITEM PARAMETER:C1004($Mnu_database;-1;$Txt_path)
 		SET MENU ITEM ICON:C984($Mnu_database;-1;"#images/8.png")
@@ -125,7 +129,7 @@ If (True:C214)  //Current folders
 			
 		End if 
 		
-		$Txt_path:=4DPop_hostDatabaseFolder (kLanguage)
+		$Txt_path:=Folder:C1567(fk database folder:K87:14;*).folder("language").platformPath  // 4DPop_hostDatabaseFolder(kLanguage)
 		APPEND MENU ITEM:C411($Mnu_database;":xliff:Menuslanguage")
 		SET MENU ITEM PARAMETER:C1004($Mnu_database;-1;$Txt_path)
 		SET MENU ITEM ICON:C984($Mnu_database;-1;"#images/8.png")
@@ -136,7 +140,7 @@ If (True:C214)  //Current folders
 			
 		End if 
 		
-		$Txt_path:=4DPop_hostDatabaseFolder (kRoot)+"Macros v2"+Folder separator:K24:12
+		$Txt_path:=Folder:C1567(fk database folder:K87:14;*).folder("Macros v2").platformPath  // 4DPop_hostDatabaseFolder(kRoot)+"Macros v2"+Folder separator
 		
 		If (Test path name:C476($Txt_path)=Is a folder:K24:2)
 			
@@ -168,20 +172,20 @@ If (True:C214)  //Current folders
 		
 	End if 
 	
-	If (True:C214)  //4D
+	If (True:C214)  // 4D
 		
 		$Mnu_4D:=Create menu:C408
 		APPEND MENU ITEM:C411($Mnu_current;":xliff:Menus4dApplication";$Mnu_4D)
-		SET MENU ITEM ICON:C984($Mnu_current;-1;"#images/16.png")
+		SET MENU ITEM ICON:C984($Mnu_current;-1;"#images/4D.png")
 		RELEASE MENU:C978($Mnu_4D)
 		
 		APPEND MENU ITEM:C411($Mnu_4D;":xliff:Menus4dApplication")
 		SET MENU ITEM PARAMETER:C1004($Mnu_4D;-1;Application file:C491)
-		SET MENU ITEM ICON:C984($Mnu_4D;-1;"#images/16.png")
+		SET MENU ITEM ICON:C984($Mnu_4D;-1;"#images/4D.png")
 		
 		APPEND MENU ITEM:C411($Mnu_4D;"-")
 		
-		$Txt_path:=4DPop_applicationFolder (kComponents)
+		$Txt_path:=Folder:C1567(fk applications folder:K87:20).folder("Components").platformPath  // 4DPop_applicationFolder(kComponents)
 		
 		If (Test path name:C476($Txt_path)=Is a folder:K24:2)
 			
@@ -221,8 +225,7 @@ If (True:C214)  //Current folders
 	End if 
 End if 
 
-If (False:C215)  //Recent databases
-	
+If (False:C215)  // Recent databases
 	$Txt_path:=Get 4D folder:C485\
 		+"Favorites v"+Substring:C12(Application version:C493;1;2)\
 		+Folder separator:K24:12
@@ -261,27 +264,27 @@ If (Test path name:C476($Txt_path)=Is a document:K24:1)
 				
 				Case of 
 						
-						  //…………………………………………
+						  //ﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉ
 					: ($Txt_name="name")
 						
 						SET MENU ITEM:C348($Mnu_main;-1;Choose:C955($Txt_value[[1]]#"-";Char:C90(1);"")+$Txt_value)
 						
-						  //…………………………………………
+						  //ﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉ
 					: ($Txt_name="url")
 						
 						SET MENU ITEM PARAMETER:C1004($Mnu_main;-1;$Txt_value)
 						
-						  //…………………………………………
+						  //ﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉ
 					: ($Txt_name="type")
 						
 						SET MENU ITEM ICON:C984($Mnu_main;-1;"#images/"+$Txt_value+".png")
 						
-						  //…………………………………………
+						  //ﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉ
 					Else 
 						
 						SET MENU ITEM PROPERTY:C973($Mnu_main;-1;$Txt_name;$Txt_value)
 						
-						  //…………………………………………
+						  //ﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉﾉ
 				End case 
 			End for 
 			
@@ -292,13 +295,13 @@ If (Test path name:C476($Txt_path)=Is a document:K24:1)
 		DOM CLOSE XML:C722($Dom_root)
 		
 		APPEND MENU ITEM:C411($Mnu_main;"-")
-		APPEND MENU ITEM:C411($Mnu_main;Get localized string:C991("EditWindowTitle")+"…")
+		APPEND MENU ITEM:C411($Mnu_main;Get localized string:C991("EditWindowTitle")+"ﾉ")
 		SET MENU ITEM PARAMETER:C1004($Mnu_main;-1;"Edit")
 		
 	End if 
 End if 
 
-If (True:C214)  //in works
+If (True:C214)  // In works
 	
 	ARRAY TEXT:C222($tTxt_files;0x0000)
 	$Txt_Path:=Get 4D folder:C485(Active 4D Folder:K5:10)+"Favorites v"+Substring:C12(Application version:C493;1;2)
@@ -310,7 +313,7 @@ If (True:C214)  //in works
 		
 		If ($Txt_fileName="@.4dlink")
 			
-			  //Compute a timestamp to sort files with most recently used databases first
+			  // Compute a timestamp to sort files with most recently used databases first
 			GET DOCUMENT PROPERTIES:C477($Txt_fileName;$Boo_dummy;$Boo_dummy;$Dat_creation;$Gmt_creation;$Dat_modification;$Gmt_modification)
 			$Lon_sortKey:=(($Dat_modification-Add to date:C393(!00-00-00!;Year of:C25(Current date:C33)-10;1;1))*86400)+($Gmt_modification+0)
 			
@@ -339,8 +342,8 @@ If (True:C214)  //in works
 					
 					APPEND TO ARRAY:C911($tLon_sort;$Lon_sortKey)
 					
-					  //Get the package name if any {
-					$Txt_buffer:=doc_getFromPath ("parent";Convert path POSIX to system:C1107(Replace string:C233($Txt_Path;"file://";"")))
+					  // Get the package name if any {
+					$Txt_buffer:=doc_getFromPath ("parent";Convert path POSIX to system:C1107(Replace string:C233($Txt_Path;"file:// ";"")))
 					
 					If ($Txt_buffer=("@.4dbase"+Folder separator:K24:12))
 						
@@ -389,7 +392,6 @@ If (True:C214)  //in works
 			End if 
 		End if 
 	End for 
-	
 End if 
 
 If (Count parameters:C259>0)
@@ -414,18 +416,17 @@ Case of
 		  //-----------------------------------
 	: ($Txt_URL="addCurrent4DLink")
 		
-		
 		  //-----------------------------------
 	: ($Txt_URL="Edit")
 		
 		EDIT 
 		
 		  //-----------------------------------
-	: ($Txt_URL="file://@")
+	: ($Txt_URL="file:// @")
 		
 		If (Macintosh command down:C546)
 			
-			$Txt_URL:=Replace string:C233($Txt_URL;"file://";"")
+			$Txt_URL:=Replace string:C233($Txt_URL;"file:// ";"")
 			SHOW ON DISK:C922($Txt_URL;*)
 			
 		Else 
@@ -434,11 +435,11 @@ Case of
 			
 			If ($Lon_Platform=Windows:K25:3)
 				
-				OPEN URL:C673(Replace string:C233($Txt_URL;"file://";""))
+				OPEN URL:C673(Replace string:C233($Txt_URL;"file:// ";""))
 				
 			Else 
 				
-				$Txt_URL:=Replace string:C233($Txt_URL;"file://";"")
+				$Txt_URL:=Replace string:C233($Txt_URL;"file:// ";"")
 				LAUNCH EXTERNAL PROCESS:C811("open "+POSIX_Path ($Txt_URL))
 				
 			End if 
@@ -447,7 +448,7 @@ Case of
 		  //-----------------------------------
 	: (Test path name:C476($Txt_URL)=Is a folder:K24:2)
 		
-		If ($Txt_URL="@.app")  //Application package on mac
+		If ($Txt_URL="@.app")  // Application package on mac
 			
 			If ($Txt_URL=Application file:C491)
 				
@@ -459,7 +460,6 @@ Case of
 				
 			End if 
 			
-			
 		Else 
 			
 			SHOW ON DISK:C922($Txt_URL;*)
@@ -469,7 +469,7 @@ Case of
 		  //-----------------------------------
 	: (Test path name:C476($Txt_URL)#Is a folder:K24:2)\
 		 & ($Txt_URL#"@.app")\
-		 & (Position:C15(Get 4D folder:C485(Database folder:K5:14);$Txt_URL)=1)  //create a database folder
+		 & (Position:C15(Get 4D folder:C485(Database folder:K5:14);$Txt_URL)=1)  // Create a database folder
 		
 		CREATE FOLDER:C475($Txt_URL;*)
 		SHOW ON DISK:C922($Txt_URL;*)
@@ -479,7 +479,7 @@ Case of
 		
 		If (Macintosh command down:C546)
 			
-			$Txt_URL:=Replace string:C233($Txt_URL;"file://";"")
+			$Txt_URL:=Replace string:C233($Txt_URL;"file:// ";"")
 			SHOW ON DISK:C922($Txt_URL;*)
 			
 		Else 

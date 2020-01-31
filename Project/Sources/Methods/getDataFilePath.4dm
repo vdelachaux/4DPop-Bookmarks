@@ -6,6 +6,9 @@
   // Modified by vdl (06/05/08)
   // v11 -> 11.2 compatibility: The 4D folder has moved
   // ----------------------------------------------------
+
+  // Modified by: 保坂圭是 (2020/01/28)
+
 C_TEXT:C284($0)
 
 C_LONGINT:C283($Lon_i)
@@ -41,12 +44,12 @@ If (Test path name:C476($File_data)#Is a document:K24:1)
 		$Txt_errorMethod:=Method called on error:C704
 		ON ERR CALL:C155("NoError")
 		
-		  //Copy file...
+		  // Copy file...
 		COPY DOCUMENT:C541($File_data;Get 4D folder:C485+"4DPop_Bookmarks.xml")
 		
 		If (OK=1)
 			
-			  //... and delete the old one
+			  // ... and delete the old one
 			DELETE DOCUMENT:C159($File_data)
 			
 		End if 
@@ -61,7 +64,7 @@ End if
 
 If (Test path name:C476($File_data)#Is a document:K24:1)
 	
-	  //Get the defaults
+	  // Get the defaults
 	$File_data:=Get 4D folder:C485(Current resources folder:K5:16)
 	
 	ARRAY TEXT:C222($tTxt_Codes;6)
@@ -72,7 +75,7 @@ If (Test path name:C476($File_data)#Is a document:K24:1)
 	$tTxt_Codes{5}:="ja"
 	$tTxt_Codes{6}:="es"
 	
-	$tTxt_Codes:=Abs:C99(Find in array:C230($tTxt_Codes;4DPop_applicationLanguage ))
+	$tTxt_Codes:=Abs:C99(Find in array:C230($tTxt_Codes;Get database localization:C1009))  // 4DPop_applicationLanguage ))
 	
 	ARRAY TEXT:C222($tTxt_Folders;6)
 	$tTxt_Folders{1}:="en"
