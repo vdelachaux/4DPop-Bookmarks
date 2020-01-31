@@ -1,0 +1,29 @@
+//%attributes = {"invisible":true}
+
+If (False:C215)
+	
+	C_TEXT:C284(mnu_APPEND_ITEM ;$1)
+	C_TEXT:C284(mnu_APPEND_ITEM ;$2)
+	C_TEXT:C284(mnu_APPEND_ITEM ;$3)
+	C_TEXT:C284(mnu_APPEND_ITEM ;$4)
+	
+	C_TEXT:C284(mnu_APPEND_LINE ;$1)
+	
+	C_TEXT:C284(mnu_PopUp ;$0)
+	C_TEXT:C284(mnu_PopUp ;$1)
+	C_TEXT:C284(mnu_PopUp ;$2)
+	C_LONGINT:C283(mnu_PopUp ;$3)
+	C_LONGINT:C283(mnu_PopUp ;$4)
+	C_BOOLEAN:C305(mnu_PopUp ;$5)
+	
+	C_TEXT:C284(mnu_RELEASE_MENU ;$1)
+	
+	C_TEXT:C284(mnu_SET_ACTIVATION ;$1)
+	C_BOOLEAN:C305(mnu_SET_ACTIVATION ;$2)
+	C_LONGINT:C283(mnu_SET_ACTIVATION ;${3})
+	
+	C_TEXT:C284(mnu_SET_MARK ;$1)
+	C_BOOLEAN:C305(mnu_SET_MARK ;$2)
+	C_LONGINT:C283(mnu_SET_MARK ;${3})
+	
+End if 
