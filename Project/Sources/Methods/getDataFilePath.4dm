@@ -6,66 +6,65 @@
   // Modified by vdl (06/05/08)
   // v11 -> 11.2 compatibility: The 4D folder has moved
   // ----------------------------------------------------
-
   // Modified by: 保坂圭是 (2020/01/28)
-
+  // ----------------------------------------------------
 C_TEXT:C284($0)
 
-C_LONGINT:C283($Lon_i)
-C_TEXT:C284($File_data;$Txt_errorMethod)
+C_LONGINT:C283($i)
+C_TEXT:C284($t_pathname;$tErrorMethod)
 
 If (False:C215)
 	C_TEXT:C284(getDataFilePath ;$0)
 End if 
 
-$File_data:=Get 4D folder:C485+"4DPop_Bookmarks.xml"
+$t_pathname:=Get 4D folder:C485+"4DPop_Bookmarks.xml"
 
   // Added by vdl (06/05/08) {
   // Try to get the file from the old localisation
-If (Test path name:C476($File_data)#Is a document:K24:1)
+If (Test path name:C476($t_pathname)#Is a document:K24:1)
 	
-	$File_data:=Get 4D folder:C485(Licenses folder:K5:11)
-	$File_data:=Substring:C12($File_data;1;Length:C16($File_data)-1)
+	$t_pathname:=Get 4D folder:C485(Licenses folder:K5:11)
+	$t_pathname:=Substring:C12($t_pathname;1;Length:C16($t_pathname)-1)
 	
-	For ($Lon_i;Length:C16($File_data);1;-1)
+	For ($i;Length:C16($t_pathname);1;-1)
 		
-		If ($File_data[[$Lon_i]]=Folder separator:K24:12)
+		If ($t_pathname[[$i]]=Folder separator:K24:12)
 			
-			$File_data:=Substring:C12($File_data;1;$Lon_i)
-			$Lon_i:=0
+			$t_pathname:=Substring:C12($t_pathname;1;$i)
+			$i:=0
 			
 		End if 
 	End for 
 	
-	$File_data:=$File_data+"4DPop_Bookmarks.xml"
+	$t_pathname:=$t_pathname+"4DPop_Bookmarks.xml"
 	
-	If (Test path name:C476($File_data)=Is a document:K24:1)
+	If (Test path name:C476($t_pathname)=Is a document:K24:1)
 		
-		$Txt_errorMethod:=Method called on error:C704
+		$tErrorMethod:=Method called on error:C704
 		ON ERR CALL:C155("NoError")
 		
 		  // Copy file...
-		COPY DOCUMENT:C541($File_data;Get 4D folder:C485+"4DPop_Bookmarks.xml")
+		COPY DOCUMENT:C541($t_pathname;Get 4D folder:C485+"4DPop_Bookmarks.xml")
 		
 		If (OK=1)
 			
 			  // ... and delete the old one
-			DELETE DOCUMENT:C159($File_data)
+			DELETE DOCUMENT:C159($t_pathname)
 			
 		End if 
 		
-		ON ERR CALL:C155($Txt_errorMethod)
+		ON ERR CALL:C155($tErrorMethod)
 		
-		$File_data:=Get 4D folder:C485+"4DPop_Bookmarks.xml"
+		$t_pathname:=Get 4D folder:C485+"4DPop_Bookmarks.xml"
 		
 	End if 
 End if 
   //}
 
-If (Test path name:C476($File_data)#Is a document:K24:1)
+If (Test path name:C476($t_pathname)#Is a document:K24:1)
 	
 	  // Get the defaults
-	$File_data:=Get 4D folder:C485(Current resources folder:K5:16)
+	$t_pathname:=Get 4D folder:C485(Current resources folder:K5:16)
 	
 	ARRAY TEXT:C222($tTxt_Codes;6)
 	$tTxt_Codes{1}:="en"
@@ -86,29 +85,29 @@ If (Test path name:C476($File_data)#Is a document:K24:1)
 	$tTxt_Folders{6}:="es"
 	$tTxt_Folders{0}:=$tTxt_Folders{$tTxt_Codes}
 	
-	$File_data:=$File_data+$tTxt_Folders{0}+".lproj"+Folder separator:K24:12
+	$t_pathname:=$t_pathname+$tTxt_Folders{0}+".lproj"+Folder separator:K24:12
 	
 	  // Added by vdl (06/05/08){
-	If (Test path name:C476($File_data)#Is a folder:K24:2)
+	If (Test path name:C476($t_pathname)#Is a folder:K24:2)
 		
-		For ($Lon_i;1;Size of array:C274($tTxt_Folders);1)
+		For ($i;1;Size of array:C274($tTxt_Folders);1)
 			
-			$File_data:=Get 4D folder:C485(Current resources folder:K5:16)\
-				+$tTxt_Folders{$Lon_i}\
+			$t_pathname:=Get 4D folder:C485(Current resources folder:K5:16)\
+				+$tTxt_Folders{$i}\
 				+".lproj"\
 				+Folder separator:K24:12
 			
-			If (Test path name:C476($File_data)=Is a folder:K24:2)
+			If (Test path name:C476($t_pathname)=Is a folder:K24:2)
 				
-				$Lon_i:=MAXLONG:K35:2-1
+				$i:=MAXLONG:K35:2-1
 				
 			End if 
 		End for 
 	End if 
 	  //}
 	
-	$File_data:=$File_data+"DefaultBookmarks.xml"
+	$t_pathname:=$t_pathname+"DefaultBookmarks.xml"
 	
 End if 
 
-$0:=$File_data
+$0:=$t_pathname  // User bookmarks file

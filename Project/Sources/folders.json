@@ -4,6 +4,12 @@
 			"00_RUN"
 		]
 	},
+	"classes": {
+		"methods": [
+			"COMPILER classes",
+			"menu"
+		]
+	},
 	"Component": {
 		"groups": [
 			"Private",
