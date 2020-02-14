@@ -96,7 +96,7 @@ Else
 	
 End if 
 
-If (Path to object:C1547(Structure file:C489).extension=".4dproject")
+If (Path to object:C1547(Structure file:C489(*)).extension=".4dproject")
 	
 	$menuDatabase.line()
 	$menuDatabase.append("Project";$folderDatabase.folder("Project").platformPath).icon($t_folder)
