@@ -1,168 +1,187 @@
 //%attributes = {"invisible":true,"shared":true}
-  // ----------------------------------------------------
-  // Method : 4DPop_bookMarks
-  // Created 25/01/07 by vdl
-  // ----------------------------------------------------
-  // Modified by: 保坂圭是 (2020/01/28)
-  // ----------------------------------------------------
-C_POINTER:C301($1)
-
-C_LONGINT:C283($bottom;$i;$j;$l;$left)
-C_TEXT:C284($node;$root;$t;$t_folder;$tName;$tValue)
-C_OBJECT:C1216($file;$folder;$folderDatabase;$menu;$menu4D;$menuDatabase)
-C_OBJECT:C1216($menuResources;$o)
-C_COLLECTION:C1488($c)
+// ----------------------------------------------------
+// Method : 4DPop_bookMarks
+// Created 25/01/07 by vdl
+// ----------------------------------------------------
+// Modified by: 保坂圭是 (2020/01/28)
+// ----------------------------------------------------
+// Modified by: vdl (1-9-2020)
+// More compatibility with projects and code rewrites
+// ----------------------------------------------------
+var $1 : Pointer
 
 If (False:C215)
-	C_POINTER:C301(4DPop_bookMarks ;$1)
+	C_POINTER:C301(4DPop_bookMarks; $1)
 End if 
 
-$t_folder:="/RESOURCES/images/8.png"
+var $folderIcon; $key; $root; $t; $value; $version : Text
+var $i; $j : Integer
+var $o : Object
+var $folders; $optionals : Collection
 
-/* -------------------------
-Database folders
--------------------------*/
-$folderDatabase:=Folder:C1567(fk database folder:K87:14;*)
-$menuDatabase:=menu \
-.append("MenusdatabaseFolder";$folderDatabase.platformPath).icon($t_folder)\
-.line()\
-.append("Preferences";$folderDatabase.folder("Preferences").platformPath).icon($t_folder).enable($folderDatabase.folder("Preferences").exists)\
-.append("Settings";$folderDatabase.folder("Settings").platformPath).icon($t_folder).enable($folderDatabase.folder("Settings").exists)
+var $databaseRoot; $folder : 4D:C1709.Directory
+var $file : 4D:C1709.Document
+var $application; $database; $menu; $project; $resources : cs:C1710.menu
 
-  // Logs
-$folder:=Folder:C1567(fk logs folder:K87:17)
-$menuDatabase.append("Menuslogs";$folder.platformPath).icon($t_folder).enable($folder.exists)
+$folderIcon:="/RESOURCES/images/8.png"
+$version:=Application version:C493
 
-  // Resources folder
-$folder:=Folder:C1567(fk resources folder:K87:11;*)
+$databaseRoot:=Folder:C1567(fk database folder:K87:14; *)
 
-If ($folder.exists)
+$database:=cs:C1710.menu.new()
+$database.append("MenusdatabaseFolder"; $databaseRoot.platformPath).icon($folderIcon)
+
+$database.append("MenusDataFolder"; Folder:C1567("/DATA").platformPath).icon($folderIcon)
+
+$folder:=Folder:C1567(fk logs folder:K87:17; *)
+$database.append("Menuslogs"; $folder.platformPath).icon($folderIcon).enable($folder.exists)
+
+$database.line()
+
+$optionals:=New collection:C1472
+
+For each ($folder; $databaseRoot.folders().orderBy("name asc"))
 	
-	$menuResources:=menu \
-		.append("Resources";$folder.platformPath).icon($t_folder)
-	
-	$c:=$folder.folders()
-	
-	If ($c.length>0)
-		
-		$menuResources.line()
-		
-		For each ($o;$c)
+	Case of 
 			
-			$menuResources.append($o.name;$o.platformPath).icon($t_folder)
+			//______________________________________________________
+		: ($folder.name="Project")
 			
-		End for each 
+			$project:=cs:C1710.menu.new()
+			$project.append("MenusProject"; $databaseRoot.folder("Project").platformPath).icon($folderIcon)\
+				.line()
+			
+			$folder:=$databaseRoot.folder("Project/Sources/Classes")
+			$project.append("Classes"; $folder.platformPath).icon($folderIcon).enable($folder.exists)
+			
+			$project.append("DatabaseMethods"; $databaseRoot.folder("Project/Sources/DatabaseMethods").platformPath).icon($folderIcon)
+			
+			$folder:=$databaseRoot.folder("Documentation")
+			$project.append("Documentation"; $folder.platformPath).icon($folderIcon).enable($folder.exists)
+			
+			$project.append("Forms"; $databaseRoot.folder("Project/Sources/Forms").platformPath).icon($folderIcon)
+			$project.append("Methods"; $databaseRoot.folder("Project/Sources/Methods").platformPath).icon($folderIcon)
+			$project.append("Triggers"; $databaseRoot.folder("Project/Sources/Triggers").platformPath).icon($folderIcon)
+			
+			$project.line()\
+				.append("DerivedData"; $databaseRoot.folder("Project/DerivedData").platformPath).icon($folderIcon)\
+				.append("Trash"; $databaseRoot.folder("Project/Trash").platformPath).icon($folderIcon)
+			
+			$database.append("Project"; $project).icon($folderIcon)
+			
+			//______________________________________________________
+		: ($folder.name="Resources")
+			
+			$resources:=cs:C1710.menu.new()
+			$resources.append("Resources"; $folder.platformPath).icon($folderIcon)
+			
+			$folders:=$folder.folders()
+			
+			If ($folders.length>0)
+				
+				$resources.line()
+				
+				For each ($o; $folders)
+					
+					$resources.append($o.name; $o.platformPath).icon($folderIcon)
+					
+				End for each 
+			End if 
+			
+			$database.append("Resources"; $resources).icon($folderIcon)
+			
+			//______________________________________________________
+		: ($folder.name="Components")\
+			 | ($folder.name="Macros v2")\
+			 | ($folder.name="DossierWeb")
+			
+			$optionals.push($folder)
+			
+			//______________________________________________________
+		Else 
+			
+			$database.append($folder.fullName; $folder.platformPath).icon($folderIcon)
+			
+			//______________________________________________________
+	End case 
+End for each 
+
+$database.line()
+$folder:=Folder:C1567(fk user preferences folder:K87:10).folder($databaseRoot.name).folder("4D Window Bounds v"+$version[[1]]+$version[[2]])
+$database.append("4D Window Bounds v"+$version[[1]]+$version[[2]]; $folder.platformPath).icon($folderIcon)
+
+$folder:=Folder:C1567(fk web root folder:K87:15; *)
+
+If ($optionals.query("name = :1"; "Components").pop()=Null:C1517)\
+ | ($optionals.query("name = :1"; "Macros v2").pop()=Null:C1517)\
+ | ($optionals.query("name = :1"; $folder.name).pop()=Null:C1517)
+	
+	// Enable metacharacters
+	$database.metacharacters:=True:C214
+	
+	$database.line()
+	
+	$t:="<I"+Get localized string:C991("CommonAdd")+" "
+	
+	If ($optionals.query("name = :1"; "Components").pop()=Null:C1517)
+		
+		$database.append($t+Get localized string:C991("Menuscomponents"); $databaseRoot.folder("Components").platformPath).icon("/RESOURCES/images/0.png")
+		
 	End if 
-End if 
-
-$menuDatabase.append("Resources";$menuResources).icon($t_folder)
-
-  // Components folder
-$folder:=$folderDatabase.folder("Components")
-
-If ($folder.exists)
 	
-	$menuDatabase.append("Menuscomponents";$folder.platformPath).icon($t_folder)
+	If ($optionals.query("name = :1"; "Macros v2").pop()=Null:C1517)
+		
+		$database.append($t+Get localized string:C991("Menusmacros"); $databaseRoot.folder("Macros v2").platformPath).icon("/RESOURCES/images/0.png")
+		
+	End if 
 	
-Else 
+	If ($optionals.query("name = :1"; $folder.name).pop()=Null:C1517)
+		
+		$database.append($t+Get localized string:C991("MenushtmlRootFolder"); $folder.platformPath).icon("/RESOURCES/images/0.png")
+		
+	End if 
 	
-	$menuDatabase.append(Get localized string:C991("CommonAdd")+" "+Get localized string:C991("Menuscomponents");$folder.platformPath)
-	
-End if 
-
-  // Macros v2 folder
-$folder:=$folderDatabase.folder("Macros v2")
-
-If ($folder.exists)
-	
-	$menuDatabase.append("Menusmacros";$folder.platformPath).icon($t_folder)
-	
-Else 
-	
-	$menuDatabase.append(Get localized string:C991("CommonAdd")+" "+Get localized string:C991("Menusmacros");$folder.platformPath)
+	// Disable metacharacters
+	$database.metacharacters:=False:C215
 	
 End if 
 
-  // Web folder
-$folder:=Folder:C1567(fk web root folder:K87:15;*)
-
-If ($folder.exists)
-	
-	$menuDatabase.append("MenushtmlRootFolder";$folder.platformPath).icon($t_folder)
-	
-Else 
-	
-	$menuDatabase.append(Get localized string:C991("CommonAdd")+" "+Get localized string:C991("MenushtmlRootFolder");$folder.platformPath)
-	
-End if 
-
-If (Path to object:C1547(Structure file:C489(*)).extension=".4dproject")
-	
-	$menuDatabase.line()
-	$menuDatabase.append("Project";$folderDatabase.folder("Project").platformPath).icon($t_folder)
-	$menuDatabase.line()
-	$menuDatabase.append("Sources";$folderDatabase.folder("Project/Sources").platformPath).icon($t_folder)
-	$menuDatabase.append("DerivedData";$folderDatabase.folder("Project/DerivedData").platformPath).icon($t_folder)
-	$menuDatabase.append("Trash";$folderDatabase.folder("Project/Trash").platformPath).icon($t_folder)
-	$menuDatabase.line()
-	$menuDatabase.append("Forms";$folderDatabase.folder("Project/Sources/Forms").platformPath).icon($t_folder)
-	$menuDatabase.append("Methods";$folderDatabase.folder("Project/Sources/Methods").platformPath).icon($t_folder)
-	$menuDatabase.append("DatabaseMethods";$folderDatabase.folder("Project/Sources/DatabaseMethods").platformPath).icon($t_folder)
-	$menuDatabase.append("Triggers";$folderDatabase.folder("Project/Sources/Triggers").platformPath).icon($t_folder)
-	$menuDatabase.line()
-	
-End if 
-
-/* -------------------------
-4D folders
--------------------------*/
-$menu4D:=menu \
-.append("Menus4dApplication";Application file:C491).icon("/RESOURCES/images/4D.png")\
+$application:=cs:C1710.menu.new()
+$application.append("Menus4dApplication"; Application file:C491).icon("/RESOURCES/images/4D.png")\
 .line()
 
-  // Current 4D folder
+// Current 4D folder
 $folder:=Folder:C1567(fk user preferences folder:K87:10)
 
 If ($folder.exists)
 	
-	$menu4D.append("Menus4dFolder";$folder.platformPath).icon($t_folder)\
+	$application.append("Menus4dFolder"; $folder.platformPath).icon($folderIcon)\
 		.line()
 	
 End if 
 
-  // 4D Components folder
-$folder:=Folder:C1567(Application file:C491;fk platform path:K87:2).folder(Choose:C955(Is macOS:C1572;"Contents/";"Components"))
+// 4D Components folder
+$folder:=Folder:C1567(Application file:C491; fk platform path:K87:2).folder(Choose:C955(Is macOS:C1572; "Contents/Components"; "Components"))
+$application.append("Menuscomponents"; $folder.platformPath).icon($folderIcon).enable($folder.exists)
 
-If ($folder.exists)
-	
-	$menu4D.append("Menuscomponents";$folder.platformPath).icon($t_folder)
-	
-End if 
-
-  // 4D Macros folder
+// 4D Macros folder
 $folder:=Folder:C1567(fk user preferences folder:K87:10).folder("Macros v2")
+$application.append("Menusmacros"; $folder.platformPath).icon($folderIcon).enable($folder.exists)
 
-If ($folder.exists)
-	
-	$menu4D.append("Menusmacros";$folder.platformPath).icon($t_folder)\
-		.line()
-	
-End if 
+$application.line()
 
-$t:=Application version:C493
-$folder:=Folder:C1567(fk user preferences folder:K87:10).folder("4D Window Bounds v"+$t[[1]]+$t[[2]])
-$menu4D.append("4D Window Bounds v"+$t[[1]]+$t[[2]];$folder.platformPath).icon($t_folder)
+$folder:=Folder:C1567(fk user preferences folder:K87:10).folder("4D Window Bounds v"+$version[[1]]+$version[[2]])
+$application.append("4D Window Bounds v"+$version[[1]]+$version[[2]]; $folder.platformPath).icon($folderIcon)
 
-$menu:=menu \
-.append("MenuscurrentFolders";menu \
-.append("Menusdatabase";$menuDatabase).icon("/RESOURCES/images/database.png")\
-.append("Menus4dApplication";$menu4D).icon("/RESOURCES/images/4D.png")).icon($t_folder)\
+$menu:=cs:C1710.menu.new()
+$menu.append("Menusdatabase"; $database).icon("/RESOURCES/images/database.png")\
+.append("Menus4dApplication"; $application).icon("/RESOURCES/images/4D.png")\
 .line()
 
-/* -------------------------
+/*-------------------------
 User bookmaks
 -------------------------*/
-$file:=File:C1566(getDataFilePath ;fk platform path:K87:2)
+$file:=File:C1566(getDataFilePath; fk platform path:K87:2)
 
 If ($file.exists)
 	
@@ -173,116 +192,103 @@ If ($file.exists)
 	
 	If (Bool:C1537(OK))
 		
-		$node:=DOM Find XML element:C864($root;"bookmarks/bookmark")
+		ARRAY TEXT:C222($nodes; 0x0000)
+		$nodes{0}:=DOM Find XML element:C864($root; "bookmarks/bookmark"; $nodes)
 		
-		For ($i;1;DOM Count XML elements:C726($root;"bookmark");1)
+		For ($i; 1; Size of array:C274($nodes); 1)
 			
 			$o:=New object:C1471
 			
-			For ($j;1;DOM Count XML attributes:C727($node);1)
+			For ($j; 1; DOM Count XML attributes:C727($nodes{$i}); 1)
 				
-				DOM GET XML ATTRIBUTE BY INDEX:C729($node;$j;$tName;$tValue)
+				DOM GET XML ATTRIBUTE BY INDEX:C729($nodes{$i}; $j; $key; $value)
 				
 				Case of 
 						
-						  //………………………………………………………………………………………………………………………………
-					: ($tName="name")
+						//………………………………………………………………………………………………………………………………
+					: ($key="name")
 						
-						$o.label:=Choose:C955($tValue[[1]]#"-";Char:C90(1);"")+$tValue
+						$o.label:=Choose:C955($value[[1]]#"-"; Char:C90(1); "")+$value
 						
-						  //………………………………………………………………………………………………………………………………
-					: ($tName="url")
+						//………………………………………………………………………………………………………………………………
+					: ($key="url")\
+						 & (Length:C16($value)>0)
 						
-						$o.url:=$tValue
+						$o.url:=$value
 						
-						  //………………………………………………………………………………………………………………………………
-					: ($tName="type")
+						//………………………………………………………………………………………………………………………………
+					: ($key="type")\
+						 & ($value#"0")
 						
-						$o.icon:="/RESOURCES/images/"+$tValue+".png"
+						$o.icon:="/RESOURCES/images/"+$value+".png"
 						
-						  //………………………………………………………………………………………………………………………………
+						//………………………………………………………………………………………………………………………………
 					Else 
 						
-						$o[$tName]:=$tValue
+						$o[$key]:=$value
 						
-						  //………………………………………………………………………………………………………………………………
+						//………………………………………………………………………………………………………………………………
 				End case 
 			End for 
 			
-			If (String:C10($o.label)="-")
+			$t:=String:C10($o.label)
+			
+			If (Position:C15("-"; $t)=1)
 				
 				$menu.line()
 				
 			Else 
 				
-				$menu.append(String:C10($o.label);String:C10($o.url)).icon(String:C10($o.icon))
-				
-				$c:=New collection:C1472("label";"url";"icon")
-				
-				For each ($t;$o)
+				If (Length:C16($t)#0)
 					
-					If ($c.indexOf($t)=-1)
-						
-						  // SET MENU ITEM PROPERTY ?
-						
-					End if 
-				End for each 
+					$menu.append($t; String:C10($o.url)).icon(String:C10($o.icon))
+					
+				End if 
 			End if 
-			
-			$node:=DOM Get next sibling XML element:C724($node)
-			
 		End for 
 		
 		DOM CLOSE XML:C722($root)
 		
-		$menu.line().append("EditWindowTitle";"Edit")
+		$menu.line().append(Get localized string:C991("EditWindowTitle")+"..."; "Edit")
 		
 	End if 
 End if 
 
-If (Count parameters:C259>0)
-	
-	OBJECT GET COORDINATES:C663($1->;$left;$l;$l;$bottom)
-	
-	$menu.popup("";$left;$bottom)
-	
-Else 
-	
-	$menu.popup()
-	
-End if 
+$menu.popup()
 
 Case of 
 		
-		  //______________________________________________________
+		//______________________________________________________
 	: (Not:C34($menu.selected))
 		
-		  //______________________________________________________
+		// <NOTHING MORE TO DO>
+		
+		//______________________________________________________
 	: ($menu.choice="Edit")
 		
-		EDIT 
+		EDIT
 		
-		  //______________________________________________________
-	: ($menu.choice="file:// @")
+		//______________________________________________________
+	: ($menu.choice="file://@")
 		
 		If (Macintosh command down:C546)
 			
-			SHOW ON DISK:C922(Replace string:C233($menu.choice;"file:// ";"");*)
+			SHOW ON DISK:C922(Replace string:C233($menu.choice; "file://"; ""); *)
 			
 		Else 
 			
 			If (Is Windows:C1573)
 				
-				OPEN URL:C673(Replace string:C233($menu.choice;"file:// ";""))
+				OPEN URL:C673(Replace string:C233($menu.choice; "file://"; ""))
 				
 			Else 
 				
-				LAUNCH EXTERNAL PROCESS:C811("open "+POSIX_Path (Replace string:C233($menu.choice;"file:// ";"")))
+				LAUNCH EXTERNAL PROCESS:C811("open "+POSIX_Path(Replace string:C233($menu.choice; "file://"; "")))
 				
 			End if 
 		End if 
 		
-		  //______________________________________________________
+		//______________________________________________________
 	: (Test path name:C476($menu.choice)=Is a folder:K24:2)
 		
 		If ($menu.choice="@.app")  // Application package on mac
@@ -293,37 +299,44 @@ Case of
 				
 			Else 
 				
-				LAUNCH EXTERNAL PROCESS:C811("open "+POSIX_Path ($menu.choice))
+				LAUNCH EXTERNAL PROCESS:C811("open "+POSIX_Path($menu.choice))
 				
 			End if 
 			
 		Else 
 			
-			SHOW ON DISK:C922($menu.choice;*)
-			
+			If (Position:C15(Application file:C491; $menu.choice)=1)
+				
+				SHOW ON DISK:C922($menu.choice)
+				
+			Else 
+				
+				SHOW ON DISK:C922($menu.choice; *)
+				
+			End if 
 		End if 
 		
-		  //______________________________________________________
+		//______________________________________________________
 	: (Test path name:C476($menu.choice)#Is a folder:K24:2)\
 		 & ($menu.choice#"@.app")\
-		 & (Position:C15(Get 4D folder:C485(Database folder:K5:14;*);$menu.choice)=1)
+		 & (Position:C15(Get 4D folder:C485(Database folder:K5:14; *); $menu.choice)=1)
 		
-		  // Create a database folder
-		CREATE FOLDER:C475($menu.choice;*)
-		SHOW ON DISK:C922($menu.choice;*)
+		// Create a database folder
+		CREATE FOLDER:C475($menu.choice; *)
+		SHOW ON DISK:C922($menu.choice; *)
 		
-		  //______________________________________________________
+		//______________________________________________________
 	Else 
 		
 		If (Macintosh command down:C546)
 			
-			SHOW ON DISK:C922(Replace string:C233($menu.choice;"file:// ";"");*)
+			SHOW ON DISK:C922(Replace string:C233($menu.choice; "file://"; ""); *)
 			
 		Else 
 			
-			OPEN URL:C673($menu.choice;*)
+			OPEN URL:C673($menu.choice; *)
 			
 		End if 
 		
-		  //______________________________________________________
+		//______________________________________________________
 End case 

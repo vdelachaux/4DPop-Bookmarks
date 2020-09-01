@@ -46,8 +46,6 @@
 					"horizontalLineStroke": "#DDDDDD",
 					"verticalLineStroke": "transparent",
 					"verticalAlign": "middle",
-					"fontFamily": "System Font",
-					"fontSize": 10,
 					"borderStyle": "none",
 					"method": "ObjectMethods/listbox.4dm",
 					"events": [
@@ -101,7 +99,6 @@
 								"name": "header.2",
 								"text": ":xliff:Bookmarks",
 								"verticalAlign": "middle",
-								"fontFamily": "System Font",
 								"fontSize": 10,
 								"fontWeight": "bold"
 							},
@@ -129,7 +126,6 @@
 								"name": "header.3",
 								"text": ":xliff:Address",
 								"verticalAlign": "middle",
-								"fontFamily": "System Font",
 								"fontSize": 10,
 								"fontWeight": "bold"
 							},

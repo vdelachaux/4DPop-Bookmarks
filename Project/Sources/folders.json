@@ -1,12 +1,17 @@
 ﻿{
+	"(mnu)": {
+		"methods": [
+			"(COMPILER_mnu)",
+			"(mnu_RELEASE_MENU)"
+		]
+	},
 	"00_dev": {
 		"methods": [
 			"00_RUN"
 		]
 	},
 	"classes": {
-		"methods": [
-			"COMPILER classes",
+		"classes": [
 			"menu"
 		]
 	},
@@ -19,35 +24,17 @@
 			"COMPILER_main"
 		]
 	},
-	"mnu": {
-		"methods": [
-			"COMPILER_mnu",
-			"mnu_APPEND_ITEM",
-			"mnu_APPEND_LINE",
-			"mnu_PopUp",
-			"mnu_RELEASE_MENU",
-			"mnu_SET_ACTIVATION",
-			"mnu_SET_MARK"
-		]
-	},
 	"Private": {
-		"groups": [
-			"mnu"
-		],
 		"methods": [
 			"CLOSE_WINDOW",
-			"doc_getFromPath",
 			"EDIT",
-			"env_4D_RECENT_DATABASES",
 			"getDataFilePath",
 			"lstb_ON_DOUBLE_CLIC",
 			"lstb_SET_SCROLLBAR",
-			"MENUS_main",
 			"NoError",
 			"ondrop",
 			"ParseFile",
-			"POSIX_Path",
-			"recentDatabases"
+			"POSIX_Path"
 		],
 		"forms": [
 			"EDIT"
@@ -56,9 +43,12 @@
 	"Public": {
 		"methods": [
 			"4DPop_bookMarks",
-			"4DPop_bookMarksInit",
 			"4DPop_bookMarksOnDrop"
 		]
 	},
-	"trash": {}
+	"trash": {
+		"groups": [
+			"(mnu)"
+		]
+	}
 }
