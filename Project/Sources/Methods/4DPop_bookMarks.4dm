@@ -91,16 +91,16 @@ For each ($folder; $databaseRoot.folders().orderBy("name asc"))
 			$database.append("Resources"; $resources).icon($folderIcon)
 			
 			//______________________________________________________
-		: ($folder.name="Components")\
-			 | ($folder.name="Macros v2")\
-			 | ($folder.name="DossierWeb")
-			
-			$optionals.push($folder)
-			
-			//______________________________________________________
 		Else 
 			
 			$database.append($folder.fullName; $folder.platformPath).icon($folderIcon)
+			
+			If ($folder.name="Components")\
+				 | ($folder.name="Macros v2")\
+				 | ($folder.name=Folder:C1567(fk web root folder:K87:15; *).name)
+				
+				$optionals.push($folder)
+			End if 
 			
 			//______________________________________________________
 	End case 
