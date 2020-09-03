@@ -193,7 +193,7 @@ If ($file.exists)
 	If (Bool:C1537(OK))
 		
 		ARRAY TEXT:C222($nodes; 0x0000)
-		$nodes{0}:=DOM Find XML element:C864($root; "bookmarks/bookmark"; $nodes)
+		$nodes{0}:=DOM Find XML element:C864($root; "/bookmarks/bookmark"; $nodes)
 		
 		For ($i; 1; Size of array:C274($nodes); 1)
 			

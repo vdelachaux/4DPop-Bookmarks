@@ -168,17 +168,6 @@
 						}
 					]
 				},
-				"_Footer": {
-					"type": "picture",
-					"top": 529,
-					"left": 0,
-					"width": 510,
-					"height": 23,
-					"sizingX": "grow",
-					"sizingY": "move",
-					"pictureFormat": "tiled",
-					"picture": "Images/_Footer.tif"
-				},
 				"Image5": {
 					"type": "picture",
 					"top": 4579,
@@ -190,10 +179,10 @@
 				},
 				"b.delete": {
 					"type": "button",
-					"top": 529,
+					"top": 530,
 					"left": 0,
 					"width": 32,
-					"height": 23,
+					"height": 22,
 					"sizingY": "move",
 					"tooltip": ":xliff:Delete",
 					"shortcutKey": "[Del]",
@@ -201,7 +190,7 @@
 					"focusable": false,
 					"icon": "/RESOURCES/images/delete.png",
 					"iconFrames": 4,
-					"style": "custom",
+					"style": "gradientBevel",
 					"method": "ObjectMethods/b.delete.4dm",
 					"events": [
 						"onClick"
@@ -228,5 +217,6 @@
 	"$4d": {
 		"version": "1",
 		"kind": "form"
-	}
+	},
+	"geometryStamp": 3
 }

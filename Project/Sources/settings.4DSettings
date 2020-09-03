@@ -1,57 +1,65 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><preferences stamp="19">
-	<com.4d>
-		<interface>
-			<misc formula_editor_with_full_lists="false"/>
-			<user can_change_password="true" display_list="false" print_progress="false"/>
-			<developper allow_read_only_structure="false"/>
-                                                                            		</interface>
-		<web>
-			<standalone_server>
-				<configuration automatic_session_management="false" ip_address="0" port_number="8080" listening_address="::">
-					<hosts>
-						<host home_page="index.html" html_root="./DossierWeb/" id="0" name="Default"/>
-					</hosts>
-				</configuration>
-				<misc use_4dvar_comments="true"/>
-				<options>
-					<web_processes timeout_for_inactives="18000"/>
-					<cache cache_max_size="524288" use_4d_web_cache="false"/>
-					<web_passwords generic_web_user="1"/>
-                                                                                                                                				</options>
-				<log>
-					<backup daily="" hourly="" monthly="" size="0" weekly=""/>
-				</log>
-                                                                                                      			</standalone_server>
-			<remote>
-				<misc use_4dvar_comments="true"/>
-				<options>
-					<web_processes timeout_for_inactives="18000"/>
-					<cache cache_max_size="524288" use_4d_web_cache="false"/>
-					<web_passwords generic_web_user="1"/>
-                                                                                                                                				</options>
-				<configuration allow_ssl="false" automatic_session_management="false" ip_address="0"/>
-				<webservices allow_requests="false"/>
-                                                                                                                                      			</remote>
-                                                    		</web>
-		<database>
-			<cache size_fixed="32" size_maximum="100" size_minimum="16" size_reserved="128"/>
-			<cpu_priority/>
-			<misc/>
-                                                    		</database>
-		<compiler>
-			<options compilation_path="3" fat_binary="true"/>
-			<typage default_for_button="2"/>
-                            		</compiler>
-		<general execute_host_database_event="true">
-			<mover always_display_dialog="1"/>
-                            		</general>
-		<sql>
-			<publication port_number="1919"/>
-                            		</sql>
-		<server>
-			<network>
-				<options publication_name="Signets"/>
-			</network>
-		</server>
-                                                                                                  	</com.4d>
-        </preferences>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<preferences stamp="26">
+  <com.4d>
+    <interface>
+      <misc formula_editor_with_full_lists="false"/>
+      <user/>
+      <developper allow_read_only_structure="false"/>
+    </interface>
+    <web>
+      <standalone_server>
+        <configuration ip_address="0" port_number="80">
+          <hosts>
+            <host id="0" name="Default"/>
+          </hosts>
+        </configuration>
+        <misc use_4dvar_comments="true"/>
+        <options>
+          <web_processes max_concurrent="100"/>
+          <cache/>
+          <web_passwords generic_web_user="1"/>
+          <keep_alive requests_number="100"/>
+          <cors enabled="false"/>
+        </options>
+        <log tokens="">
+          <backup daily="" hourly="" monthly="" size="0" weekly=""/>
+        </log>
+        <webservices>
+          <server name="A_WebService"/>
+        </webservices>
+      </standalone_server>
+      <remote>
+        <misc use_4dvar_comments="true"/>
+        <options>
+          <web_processes timeout_for_inactives="18000"/>
+          <cache cache_max_size="524288" use_4d_web_cache="false"/>
+          <web_passwords generic_web_user="1"/>
+        </options>
+        <configuration allow_ssl="false" automatic_session_management="false" ip_address="0"/>
+        <webservices allow_requests="false"/>
+      </remote>
+    </web>
+    <database>
+      <cache flush_buffer_delay="20s"/>
+      <cpu_priority/>
+      <misc standard_xpath="true" use_ast_interpreter="false"/>
+    </database>
+    <compiler>
+      <options compilation_path="3" fat_binary="true"/>
+      <typage default_for_button="2"/>
+      <method_suffix arrays="" interprocess_arrays="" interprocess_variables="" methods="" variables=""/>
+    </compiler>
+    <general execute_host_database_event="true">
+      <mover always_display_dialog="1"/>
+    </general>
+    <sql>
+      <publication port_number="19812"/>
+    </sql>
+    <server>
+      <network>
+        <options publication_name="4DPop Bookmarks" publication_port="19813" use_legacy_network_layer="false"/>
+      </network>
+    </server>
+    <php ip_address="127.0.0.1"/>
+  </com.4d>
+</preferences>
