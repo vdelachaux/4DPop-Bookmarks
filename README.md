@@ -3,6 +3,9 @@
 ![code-size](https://img.shields.io/github/languages/code-size/vdelachaux/4DPop-Bookmarks.svg)
 [![license](https://img.shields.io/github/license/vdelachaux/4DPop-Bookmarks)](LICENSE)
 
+[toolbar]:Assets/toolbar.png
+[editor]:Assets/editor.png
+
 # 4DPop-Bookmarks
 
 4DPop Bookmarks manages your bookmarks (and more) from your development environment.
@@ -17,7 +20,7 @@ Place the `4DPop_Bookmarks.4dbase` folder or an alias to it:
 
 If you use the `4DPop` component, the `Bookmark` tool will automatically appear in the tool palette; just click on it to display and use it.
 
-![4DPop](Assets/toolbar.png)
+![4DPop][toolbar]
 
 ## Use
 
@@ -32,7 +35,7 @@ According to the bookmark type, selecting one of them loads the associated URL i
 
 The last menu item, "Edit BookMarks List...", allow you to modify the list of bookmarks.
  
-![Editor](Assets/editor.png)
+![Editor][editor]
 
 Adding bookmarks can be done by drag and drop from the desktop to the editor (file, folder or disk), from your browser (email address and URL) or from a text box. The dragged item is analyzed and the created menu item automatically indicates its type by associating a specific icon to it.
 
