@@ -1,4 +1,4 @@
-﻿{
+{
 	"(mnu)": {
 		"methods": [
 			"(COMPILER_mnu)",
@@ -43,8 +43,8 @@
 	},
 	"Public": {
 		"methods": [
-			"4DPop_bookMarks",
-			"4DPop_bookMarksOnDrop"
+			"popBookMarks",
+			"popBookMarksOnDrop"
 		]
 	},
 	"trash": {

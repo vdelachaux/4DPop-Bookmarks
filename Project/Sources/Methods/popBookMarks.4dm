@@ -8,11 +8,7 @@
 // Modified by: vdl (1-9-2020)
 // More compatibility with projects and code rewrites
 // ----------------------------------------------------
-var $1 : Pointer
-
-If (False:C215)
-	C_POINTER:C301(4DPop_bookMarks; $1)
-End if 
+#DECLARE($ptr : Pointer)
 
 var $folderIcon; $key; $root; $t; $value; $version : Text
 var $i; $j : Integer

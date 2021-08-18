@@ -2,9 +2,9 @@
 
 If (False:C215)
 	
-	C_POINTER:C301(4DPop_bookMarks; $1)
+	C_POINTER:C301(popBookMarks; $1)
 	
-	C_POINTER:C301(4DPop_bookMarksOnDrop; $1)
+	C_POINTER:C301(popBookMarksOnDrop; $1)
 	
 	//lstb_SET_SCROLLBAR
 	C_TEXT:C284(lstb_SET_SCROLLBAR; $1)

@@ -132,11 +132,13 @@ Function append
 			//______________________________________________________
 		: (Value type:C1509($1)=Is text:K8:3)
 			
+			//%W-533.1
 			If ($1[[1]]#Char:C90(1))
 				
 				$t:=Get localized string:C991($1)
 				
 			End if 
+			//%W+533.1
 			
 			$t:=Choose:C955(Length:C16($t)>0; $t; $1)
 			
@@ -355,11 +357,11 @@ Function action
 	
 	If (Count parameters:C259=1)
 		
-		SET MENU ITEM PROPERTY:C973(This:C1470.ref; -1; Associated standard action:K28:8; $1)
+		SET MENU ITEM PROPERTY:C973(This:C1470.ref; -1; Associated standard action name:K28:8; $1)
 		
 	Else 
 		
-		SET MENU ITEM PROPERTY:C973(This:C1470.ref; $2; Associated standard action:K28:8; $1)
+		SET MENU ITEM PROPERTY:C973(This:C1470.ref; $2; Associated standard action name:K28:8; $1)
 		
 	End if 
 	

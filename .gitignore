@@ -19,3 +19,4 @@ Settings/
 # Ignore Trash
 Project/Trash/
 Resources/php.ini
+Libraries/lib4d-arm64.dylib
