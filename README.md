@@ -2,6 +2,8 @@
 [![language](https://img.shields.io/github/languages/top/vdelachaux/4DPop-Bookmarks.svg)](https://developer.4d.com/)
 ![code-size](https://img.shields.io/github/languages/code-size/vdelachaux/4DPop-Bookmarks.svg)
 [![license](https://img.shields.io/github/license/vdelachaux/4DPop-Bookmarks)](LICENSE)
+[![release](https://img.shields.io/github/v/release/vdelachaux/4DPop-Bookmarks?include_prereleases)](https://github.com/vdelachaux/4DPop-Bookmarks/releases/latest)
+
 
 [toolbar]:Assets/toolbar.png
 [editor]:Assets/editor.png
