@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><preferences stamp="27">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="28">
 	<com.4d>
 		<interface>
 			<misc formula_editor_with_full_lists="false"/>
@@ -31,7 +31,7 @@
 		<database>
 			<cache flush_buffer_delay="20s"/>
 			<cpu_priority/>
-			<misc standard_xpath="true" use_ast_interpreter="false"/>                      </database>
+			<misc mac_use_lf="true" no_bom="true" prefer_null_than_blank_values="false" standard_xpath="true" use_ast_interpreter="false"/>                      </database>
 		<compiler>
 			<options compilation_path="3" fat_binary="true" target="all"/>
 			<typage default_for_button="2"/>
