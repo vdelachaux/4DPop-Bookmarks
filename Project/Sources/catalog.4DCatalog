@@ -2,7 +2,7 @@
 <!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
 <base name="4DPop Bookmarks" uuid="E7E4E7B82E8048E8B2E53C476DED2D22" collation_locale="fr">
 	<schema name="DEFAULT_SCHEMA"/>
-	<base_extra package_name="4DPop Bookmarks" data_file_path=":4DPop Bookmarks.4DD" structure_file_name="4DPop Bookmarks" __stringCompHash="icu:68.1.0" __keywordBuildingHash="icu:68.1.0">
+	<base_extra package_name="4DPop Bookmarks" data_file_path=":4DPop Bookmarks.4DD" structure_file_name="4DPop Bookmarks" __stringCompHash="icu:72.1.0" __keywordBuildingHash="icu:72.1.0">
 		<temp_folder folder_selector="data"/>
 		<journal_file journal_file_enabled="false"/>
 	</base_extra>

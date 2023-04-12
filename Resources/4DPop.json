@@ -1,0 +1,9 @@
+{
+  "name": ":xliff:Title",
+  "popup": true,
+  "picture": "4DPop.png",
+  "ondrop": "popBookMarksOnDrop",
+  "tool": {
+    "method": "popBookMarks"
+  }
+}
