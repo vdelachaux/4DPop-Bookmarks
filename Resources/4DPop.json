@@ -2,8 +2,9 @@
   "name": ":xliff:Title",
   "popup": true,
   "picture": "4DPop.png",
-  "ondrop": "popBookMarksOnDrop",
-  "tool": {
-    "method": "popBookMarks"
+  "ondrop": "onDrop",
+  "handler": "4DPopBookMarks",
+  "tools": {
+    "method": "menu"
   }
 }

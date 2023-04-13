@@ -1,39 +1,24 @@
 {
-	"(mnu)": {
-		"methods": [
-			"(COMPILER_mnu)",
-			"(mnu_RELEASE_MENU)"
-		]
-	},
-	"00_dev": {
+	"# 🚧 DEV": {
 		"methods": [
 			"00_RUN"
 		]
 	},
-	"classes": {
+	"♻️ LIBRAIRIES": {
 		"classes": [
 			"menu"
 		]
 	},
-	"Component": {
-		"groups": [
-			"classes",
-			"Private",
-			"Public"
-		],
-		"methods": [
-			"COMPILER_main"
-		]
-	},
-	"Private": {
+	"📦 COMPONENT": {
 		"methods": [
 			"CLOSE_WINDOW",
+			"COMPILER_main",
+			"doDrop",
 			"EDIT",
 			"getDataFilePath",
 			"lstb_ON_DOUBLE_CLIC",
 			"lstb_SET_SCROLLBAR",
 			"NoError",
-			"ondrop",
 			"ParseFile",
 			"POSIX_Path"
 		],
@@ -41,15 +26,13 @@
 			"EDIT"
 		]
 	},
-	"Public": {
+	"4️⃣ 4DPop": {
 		"methods": [
-			"popBookMarks",
-			"popBookMarksOnDrop"
+			"4DPopBookMarks",
+			"COMPILER _4DPop",
+			"menu",
+			"onDrop"
 		]
 	},
-	"trash": {
-		"groups": [
-			"(mnu)"
-		]
-	}
+	"trash": {}
 }

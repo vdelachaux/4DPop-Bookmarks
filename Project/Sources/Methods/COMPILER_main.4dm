@@ -2,10 +2,6 @@
 
 If (False:C215)
 	
-	C_POINTER:C301(popBookMarks; $1)
-	
-	C_POINTER:C301(popBookMarksOnDrop; $1)
-	
 	//lstb_SET_SCROLLBAR
 	C_TEXT:C284(lstb_SET_SCROLLBAR; $1)
 	
@@ -19,10 +15,10 @@ If (False:C215)
 	C_TEXT:C284(getDataFilePath; $0)
 	
 	//ondrop
-	C_BOOLEAN:C305(ondrop; $0)
-	C_POINTER:C301(ondrop; $1)
-	C_POINTER:C301(ondrop; $2)
-	C_POINTER:C301(ondrop; $3)
+	C_BOOLEAN:C305(doDrop; $0)
+	C_POINTER:C301(doDrop; $1)
+	C_POINTER:C301(doDrop; $2)
+	C_POINTER:C301(doDrop; $3)
 	
 	//POSIX_Path
 	C_TEXT:C284(POSIX_Path; $0)

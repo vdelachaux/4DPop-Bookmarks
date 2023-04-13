@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true}
+//%attributes = {"invisible":true}
 // ----------------------------------------------------
 // Method : 4DPop_bookMarks
 // Created 25/01/07 by vdl
@@ -8,15 +8,18 @@
 // Modified by: vdl (1-9-2020)
 // More compatibility with projects and code rewrites
 // ----------------------------------------------------
-#DECLARE($ptr : Pointer)
+#DECLARE($widget : Object)
+
+If (False:C215)
+	C_OBJECT:C1216(menu; $1)
+End if 
 
 var $folderIcon; $key; $root; $t; $value; $version : Text
 var $i; $j : Integer
 var $o : Object
 var $folders; $optionals : Collection
-
-var $databaseRoot; $folder : 4D:C1709.Directory
-var $file : 4D:C1709.Document
+var $file : 4D:C1709.File
+var $databaseRoot; $folder : 4D:C1709.Folder
 var $application; $database; $menu; $project; $resources : cs:C1710.menu
 
 $folderIcon:="/RESOURCES/images/8.png"
