@@ -31,7 +31,7 @@
 			"4DPopBookMarks",
 			"COMPILER _4DPop",
 			"menu",
-			"onDrop"
+			"ondrop"
 		]
 	},
 	"trash": {}
