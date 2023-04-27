@@ -1,9 +1,5 @@
 {
-	"# 🚧 DEV": {
-		"methods": [
-			"00_RUN"
-		]
-	},
+	"# 🚧 DEV": {},
 	"♻️ LIBRAIRIES": {
 		"classes": [
 			"menu"
@@ -28,10 +24,10 @@
 	},
 	"4️⃣ 4DPop": {
 		"methods": [
-			"4DPopBookMarks",
+			"_4DPopBookMarks",
 			"COMPILER _4DPop",
-			"menu",
-			"ondrop"
+			"doMenu",
+			"onDrop"
 		]
 	},
 	"trash": {}

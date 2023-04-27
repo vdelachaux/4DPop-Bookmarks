@@ -1,10 +1,10 @@
 {
   "name": ":xliff:Title",
+  "media": "4DPop.png",
   "popup": true,
-  "picture": "4DPop.png",
   "ondrop": "onDrop",
-  "handler": "4DPopBookMarks",
+  "handler": "_4DPopBookMarks",
   "tools": {
-    "method": "menu"
+    "method": "doMenu"
   }
 }

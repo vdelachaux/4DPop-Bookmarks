@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true}
+//%attributes = {}
 // ----------------------------------------------------
 // Method : 4DPop_bookMarks
 // Created 25/01/07 by vdl
@@ -9,10 +9,6 @@
 // More compatibility with projects and code rewrites
 // ----------------------------------------------------
 #DECLARE($widget : Object)
-
-If (False:C215)
-	C_OBJECT:C1216(menu; $1)
-End if 
 
 var $folderIcon; $key; $root; $t; $value; $version : Text
 var $i; $j : Integer
