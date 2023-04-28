@@ -26,8 +26,7 @@
 		"methods": [
 			"_4DPopBookMarks",
 			"COMPILER _4DPop",
-			"doMenu",
-			"onDrop"
+			"doMenu"
 		]
 	},
 	"trash": {}

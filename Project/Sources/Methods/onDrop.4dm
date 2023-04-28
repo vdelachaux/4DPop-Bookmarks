@@ -3,7 +3,7 @@
 // Method : Tool_ondrop
 // Created 21/05/07 by vdl
 // ----------------------------------------------------
-#DECLARE($widget : Object)
+#DECLARE($data : Object)
 
 If (False:C215)
 	C_OBJECT:C1216(onDrop; $1)

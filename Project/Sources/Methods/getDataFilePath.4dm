@@ -19,7 +19,7 @@ End if
 
 var $onErrCall : Text
 
-var $file; $o : 4D:C1709.Document
+var $file; $o : 4D:C1709.File
 
 $file:=Folder:C1567(fk user preferences folder:K87:10).file("4DPop_Bookmarks.xml")
 

@@ -20,25 +20,27 @@ If (Process number:C372("$"+Current method name:C684)=0)
 	
 Else 
 	
-	$menuBar:=cs:C1710.menu.new()
+	var $menuHandle : Text
+	$menuHandle:=Formula:C1597(menuHandle).source
 	
-	$menuFile:=cs:C1710.menu.new()
-	$menuFile.append("CommonMenuItemNew").shortcut("N")
-	$menuFile.append("CommonMenuItemOpen").shortcut("O")
-	$menuFile.line()
-	$menuFile.append("CommonMenuItemSave").shortcut("S")
-	$menuFile.append("CommonMenuItemRevertToSave")
-	$menuFile.line()
-	$menuFile.append("CommonMenuItemClose").shortcut("W")
+	var $menuFile : cs:C1710.menu
+	$menuFile:=cs:C1710.menu.new().file()  // Get a standard file menu
 	
-	$menuBar.append("CommonMenuFile"; $menuFile)
+	// Insert custom elements at the beginning
+	$menuFile.append("CommonMenuItemNew"; "newItem"; 0).method($menuHandle).shortcut("N")\
+		.append("CommonMenuItemOpen"; "open"; 1).method($menuHandle).shortcut("N"; Option key mask:K16:7)\
+		.line(2)\
+		.append("CommonMenuItemSave"; "save"; 3).method($menuHandle).shortcut("S")\
+		.append("CommonMenuItemRevertToSave"; "save"; 4).method($menuHandle)\
+		.line(5)\
+		.append("CommonMenuItemClose"; "close"; 6).method($menuHandle).shortcut("W")
 	
-	$menuEdit:=cs:C1710.menu.new()
-	$menuEdit.edit()
+	var $menuEdit : cs:C1710.menu
+	$menuEdit:=cs:C1710.menu.new().edit()  // Get a standard edit menu
 	
-	$menuBar.append("CommonMenuEdit"; $menuEdit)
-	
-	$menuBar.setBar()
+	$menuBar:=cs:C1710.menuBar.new(New collection:C1472(\
+		":xliff:CommonMenuFile"; $menuFile; \
+		":xliff:CommonMenuEdit"; $menuEdit)).set()
 	
 	$file:=File:C1566(Get 4D folder:C485+"4DPop_Bookmarks.xml"; fk platform path:K87:2)
 	
