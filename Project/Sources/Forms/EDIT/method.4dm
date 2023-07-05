@@ -5,7 +5,7 @@
 C_LONGINT:C283($Lon_formEvent; $Lon_i; $Lon_index)
 C_PICTURE:C286($Pic_buffer)
 C_POINTER:C301($Ptr_icon; $Ptr_label; $Ptr_type; $Ptr_url)
-C_TEXT:C284($Dom_element; $Dom_root; $kTxt_pictureFolder; $Txt_name; $Txt_path; $Txt_value)
+C_TEXT:C284($Dom_element; $root; $kTxt_pictureFolder; $Txt_name; $Txt_path; $Txt_value)
 
 $Lon_formEvent:=Form event code:C388
 
@@ -32,13 +32,13 @@ Case of
 		
 		If (Test path name:C476($Txt_path)=Is a document:K24:1)
 			
-			$Dom_root:=DOM Parse XML source:C719($Txt_path; False:C215)
+			$root:=DOM Parse XML source:C719($Txt_path; False:C215)
 			
 			If (OK=1)
 				
-				$Dom_element:=DOM Find XML element:C864($Dom_root; "/bookmarks/bookmark")
+				$Dom_element:=DOM Find XML element:C864($root; "/bookmarks/bookmark")
 				
-				For ($Lon_i; 1; DOM Count XML elements:C726($Dom_root; "bookmark"); 1)
+				For ($Lon_i; 1; DOM Count XML elements:C726($root; "bookmark"); 1)
 					
 					For ($Lon_index; 1; DOM Count XML attributes:C727($Dom_element))
 						
@@ -73,7 +73,7 @@ Case of
 					
 				End for 
 				
-				DOM CLOSE XML:C722($Dom_root)
+				DOM CLOSE XML:C722($root)
 				
 			End if 
 			
@@ -106,21 +106,21 @@ Case of
 			
 		End if 
 		
-		$Dom_root:=DOM Create XML Ref:C861("bookmarks")
+		$root:=DOM Create XML Ref:C861("bookmarks")
 		
 		If (OK=1)
 			
 			For ($Lon_i; 1; Size of array:C274($Ptr_label->); 1)
 				
-				$Dom_element:=DOM Create XML element:C865($Dom_root; "bookmark"\
+				$Dom_element:=DOM Create XML element:C865($root; "bookmark"\
 					; "name"; $Ptr_label->{$Lon_i}\
 					; "url"; $Ptr_url->{$Lon_i}\
 					; "type"; String:C10($Ptr_type->{$Lon_i}))
 				
 			End for 
 			
-			DOM EXPORT TO FILE:C862($Dom_root; $Txt_path)
-			DOM CLOSE XML:C722($Dom_root)
+			DOM EXPORT TO FILE:C862($root; $Txt_path)
+			DOM CLOSE XML:C722($root)
 			
 		End if 
 		
