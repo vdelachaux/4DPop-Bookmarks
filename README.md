@@ -1,13 +1,24 @@
-[![language](https://img.shields.io/static/v1?label=language&message=4d&color=blue)](https://developer.4d.com/)
-[![language](https://img.shields.io/github/languages/top/vdelachaux/4DPop-Bookmarks.svg)](https://developer.4d.com/)
-![code-size](https://img.shields.io/github/languages/code-size/vdelachaux/4DPop-Bookmarks.svg)
-[![license](https://img.shields.io/github/license/vdelachaux/4DPop-Bookmarks)](LICENSE)
-[![release](https://img.shields.io/github/v/release/vdelachaux/4DPop-Bookmarks?include_prereleases)](https://github.com/vdelachaux/4DPop-Bookmarks/releases/latest)
-[![Build](https://github.com/vdelachaux/4DPop-Bookmarks/actions/workflows/build.yml/badge.svg)](https://github.com/vdelachaux/4DPop-Bookmarks/actions/workflows/build.yml)
+<!-- MARKDOWN LINKS & IMAGES -->
+[code-shield]: https://img.shields.io/static/v1?label=language&message=4d&color=blue
+[code-url]: https://developer.4d.com/
+[license-url]: LICENSE
+[notarized]: https://img.shields.io/badge/notarized-blue
 
+[code-top]: https://img.shields.io/github/languages/top/vdelachaux/4DPop-Bookmarks.svg
+[code-size]: https://img.shields.io/github/languages/code-size/vdelachaux/4DPop-Bookmarks.svg
+[release-shield]: https://img.shields.io/github/v/release/vdelachaux/4DPop-Bookmarks?include_prereleases
+[release-url]: https://github.com/vdelachaux/4DPop-Bookmarks/releases/latest
+[license-shield]: https://img.shields.io/github/license/vdelachaux/4DPop-Bookmarks
+[build-shield]: https://github.com/vdelachaux/4DPop-Bookmarks/actions/workflows/build.yml/badge.svg
+[build-url]: https://github.com/vdelachaux/4DPop-Bookmarks/actions/workflows/build.yml
 
-[toolbar]:Assets/toolbar.png
-[editor]:Assets/editor.png
+[![language][code-shield]][code-url]
+[![language-top][code-top]][code-url]
+![code-size][code-size]
+[![license][license-shield]][license-url]
+[![release][release-shield]][release-url]
+[![build][build-shield]][license-url]
+![notarized][notarized]
 
 # 4DPop-Bookmarks
 
@@ -23,22 +34,19 @@ Place the `4DPop_Bookmarks.4dbase` folder or an alias to it:
 
 If you use the `4DPop` component, the `Bookmark` tool will automatically appear in the tool palette; just click on it to display and use it.
 
-![4DPop][toolbar]
+<img src="./Assets/toolbar.png" width="800">
 
 ## Use
 
 `4DPop Bookmarks` displays a menu allowing direct access to folders related to the database or to the 4D environment. Then a list of user bookmarks (for example: a folder, a document, a web URL…). 
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-	<td><img src="Assets/database.png" width="400"></td>
-	<td><img src="Assets/application.png" width="400"></td>
-</table>
+<img src="./Assets/database.png" width="400">   <img src="./Assets/application.png" width="400">
 
 According to the bookmark type, selecting one of them loads the associated URL in the default browser, reveals the folder, opens the file or create a mail.
 
 The last menu item, "Edit BookMarks List...", allow you to modify the list of bookmarks.
  
-![Editor][editor]
+<img src="./Assets/editor.png" width="800">
 
 Adding bookmarks can be done by drag and drop from the desktop to the editor (file, folder or disk), from your browser (email address and URL) or from a text box. The dragged item is analyzed and the created menu item automatically indicates its type by associating a specific icon to it.
 
