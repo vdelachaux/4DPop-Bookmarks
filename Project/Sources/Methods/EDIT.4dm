@@ -8,10 +8,9 @@
 // Modified by: vdl (1-9-2020)
 // Code rewrites
 // ----------------------------------------------------
-var $root; $xml : Text
+var $menuHandle; $root; $xml : Text
 var $process; $window : Integer
-
-var $file : 4D:C1709.Document
+var $file : 4D:C1709.File
 var $menuBar; $menuEdit; $menuFile : cs:C1710.menu
 
 If (Process number:C372("$"+Current method name:C684)=0)
@@ -20,10 +19,8 @@ If (Process number:C372("$"+Current method name:C684)=0)
 	
 Else 
 	
-	var $menuHandle : Text
 	$menuHandle:=Formula:C1597(menuHandle).source
 	
-	var $menuFile : cs:C1710.menu
 	$menuFile:=cs:C1710.menu.new().file()  // Get a standard file menu
 	
 	// Insert custom elements at the beginning
@@ -35,7 +32,6 @@ Else
 		.line(5)\
 		.append("CommonMenuItemClose"; "close"; 6).method($menuHandle).shortcut("W")
 	
-	var $menuEdit : cs:C1710.menu
 	$menuEdit:=cs:C1710.menu.new().edit()  // Get a standard edit menu
 	
 	$menuBar:=cs:C1710.menuBar.new(New collection:C1472(\

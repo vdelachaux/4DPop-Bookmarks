@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <!--            Translation file.
 This file is distributed under the same license as the product package.-->
 <xliff version="1.0" xmlns:d4="http://www.4d.com/d4-ns">
@@ -11,109 +11,109 @@ This file is distributed under the same license as the product package.-->
     </header>
     <body>
       <group resname="Strings">
-        <trans-unit id="1" resname="Title">
+        <trans-unit id="htH+GmFMeN69QXgUNnryZw" resname="Title">
           <source>BookMarks</source>
           <target>Signets</target>
         </trans-unit>
-        <trans-unit id="2" resname="EditWindowTitle">
+        <trans-unit id="nl2LB5CX+UD3cWv7FJDEPw" resname="EditWindowTitle">
           <source>Edit BookMarks List</source>
           <target>Editer la liste des signets</target>
         </trans-unit>
-        <trans-unit id="3" resname="Bookmarks">
+        <trans-unit id="Sj1tMAbN44ZJs1u3_P8GBA" resname="Bookmarks">
           <source>Bookmarks</source>
           <target>Signets</target>
         </trans-unit>
-        <trans-unit id="4" resname="Address">
+        <trans-unit id="3T1K1JBSzTlvUBSPjUvNYQ" resname="Address">
           <source>Address (URL)</source>
           <target>Addresses (URL)</target>
         </trans-unit>
-        <trans-unit id="7" resname="Bookmark">
+        <trans-unit id="qS_ra8YeH8jQ1qOFfdSRyg" resname="Bookmark">
           <source>Bookmark</source>
           <target>signet</target>
         </trans-unit>
       </group>
       <group resname="Tips">
-        <trans-unit id="7" resname="List">
+        <trans-unit id="E3B8o0CeNV+uzxl2ryQ12g" resname="List">
           <source>Drop here a file, a folder, an url or a mail address...
 You can reorganize the bookmarks by dragging and dropping.</source>
           <target>Déposer ici un fichier, un dossier, une adresse url ou mail...
 Vous pouvez réorganiser les signets par glissé-déposé.</target>
         </trans-unit>
-        <trans-unit id="8" resname="Delete">
+        <trans-unit id="ZDIaPRzUbFOqbF3SvMcEcQ" resname="Delete">
           <source>Delete the selected element.</source>
           <target>Supprimer l&amp;apos;élément sélectionné.</target>
         </trans-unit>
       </group>
       <group resname="menus">
-        <trans-unit id="8" resname="MenuscurrentFolders">
+        <trans-unit id="A+CrE8RbsBngh412jcH19g" resname="MenuscurrentFolders">
           <source>Current Folders</source>
           <target>Dossiers courants</target>
         </trans-unit>
-        <trans-unit id="9" resname="Menusdatabase">
+        <trans-unit id="XUBWsMGq5_m9kRaodsrGNw" resname="Menusdatabase">
           <source>Database</source>
           <target>Base</target>
         </trans-unit>
-        <trans-unit id="10" resname="MenusdatabaseFolder">
+        <trans-unit id="4vL422kzGUwA4DcKqJEetQ" resname="MenusdatabaseFolder">
           <source>Database folder</source>
           <target>Dossier base</target>
         </trans-unit>
-        <trans-unit id="21" resname="Menus4dApplication">
+        <trans-unit id="kRFmfJ2TKrSnDuIkMmnjVA" resname="Menus4dApplication">
           <source>4D application</source>
           <target>Application 4D</target>
         </trans-unit>
-        <trans-unit id="11" resname="Menuspreferences">
+        <trans-unit id="rZMNrIEiKsvLGg833WUE+Q" resname="Menuspreferences">
           <source>Preferences Folder</source>
           <target>Dossier préférences</target>
         </trans-unit>
-        <trans-unit id="12" resname="Menusresources">
+        <trans-unit id="419NiR+Lzvs950zUiDXboQ" resname="Menusresources">
           <source>Resources Folder</source>
           <target>Dossier ressources</target>
         </trans-unit>
-        <trans-unit id="13" resname="Menuscomponents">
+        <trans-unit id="hg5NPNIiZR2xPAGuE9pTzg" resname="Menuscomponents">
           <source>Components Folder</source>
           <target>Dossier composants</target>
         </trans-unit>
-        <trans-unit id="14" resname="Menuslogs">
+        <trans-unit id="KAxLEwN+yyqUM0nN5QsNRg" resname="Menuslogs">
           <source>Logs Folder</source>
           <target>Dossier logs</target>
         </trans-unit>
-        <trans-unit id="15" resname="Menuslanguage">
+        <trans-unit id="YcCcKo0us4_H264jaUkYNA" resname="Menuslanguage">
           <source>Localization Folder</source>
           <target>Dossier localisé</target>
         </trans-unit>
-        <trans-unit id="16" resname="Menusmacros">
+        <trans-unit id="QVXnqodsy2kLJmyQdScgtQ" resname="Menusmacros">
           <source>Macros Folder</source>
           <target>Dossier 'Macros'</target>
         </trans-unit>
-        <trans-unit id="17" resname="Menus4dFolder">
+        <trans-unit id="totB9uc4MsqxyWISgpo5xg" resname="Menus4dFolder">
           <source>Active 4D Folder</source>
           <target>Dossier 4D actif</target>
         </trans-unit>
-        <trans-unit id="18" resname="Menuslicences">
+        <trans-unit id="CAmKcN9BI5vEr7ir7xP0xg" resname="Menuslicences">
           <source>Licences Folder</source>
           <target>Dossier licences</target>
         </trans-unit>
-        <trans-unit id="19" resname="MenushtmlRootFolder">
+        <trans-unit id="s2gBgQ2vdDIeAvfWv83Wrg" resname="MenushtmlRootFolder">
           <source>HTML Root Folder</source>
           <target>Dossier racine HTML</target>
         </trans-unit>
-        <trans-unit id="20" resname="MenusrecentDatabases">
+        <trans-unit id="vc6Mlo_d+Z8TwmJRlZEiIA" resname="MenusrecentDatabases">
           <source>Recent Databases</source>
           <target>Bases récentes</target>
         </trans-unit>
-        <trans-unit id="23" resname="MenusLocalDatabases">
+        <trans-unit id="nzStV0jyf9J+YJ09LgYyKQ" resname="MenusLocalDatabases">
           <source>Local Databases</source>
           <target>Bases de données locales</target>
         </trans-unit>
-        <trans-unit id="23" resname="MenusRemoteDatabases">
+        <trans-unit id="d90q+7YNGXnCkMj8BITx2w" resname="MenusRemoteDatabases">
           <source>Remotes Databases</source>
           <target>Bases de données distantes</target>
         </trans-unit>
-        <trans-unit id="pQNjU0h8t1URCK18uzrFxA" resname="MenusDataFolder">
+        <trans-unit id="b73HlieYblk8vE6KU+6k_w" resname="MenusDataFolder">
           <source>Data folder</source>
           <target>Dossier de données</target>
         </trans-unit>
-        <trans-unit id="okmoBGTFBr/+PfN3XaQ7WA" resname="MenusProject">
+        <trans-unit id="KtxbastkHfhCFCnVggXeTg" resname="MenusProject">
           <source>Project Folder</source>
           <target>Dossier projet</target>
         </trans-unit>

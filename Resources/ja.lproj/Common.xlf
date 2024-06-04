@@ -1,178 +1,179 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <!--    
    Translation file for 4D products.
    Copyright (C) 2007-2012 4D SAS.
    This file is distributed under the same license as the 4D product package.
 -->
-<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd"><xliff version="1.0">
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
    <file datatype="x-STR#" original="Undefined" product-version="2007" source-language="en" target-language="ja">
       <body>
          <group id="79" resname="Menu">
-            <trans-unit id="1" resname="CommonMenuFile">
+            <trans-unit id="U5wqp_UMX5at6Dd6S5oP2A" resname="CommonMenuFile">
                <source>File</source>
                <target>ファイル</target>
             </trans-unit>
-            <trans-unit id="5" resname="CommonMenuEdit">
+            <trans-unit id="ckWuZYwaatfeEny5QmpPWg" resname="CommonMenuEdit">
                <source>Edit</source>
                <target>編集</target>
             </trans-unit>
-            <trans-unit id="6" resname="CommonMenuMode">
+            <trans-unit id="0AFtCgD8jYa165J7uSeoPQ" resname="CommonMenuMode">
                <source>Mode</source>
                <target>モード</target>
             </trans-unit>
          </group>
          <group id="131" resname="MenuItems">
-            <trans-unit id="18" resname="CommonMenuItemUndo">
+            <trans-unit id="A8esjm6fNa+fJMTyceJGKQ" resname="CommonMenuItemUndo">
                <source>Undo</source>
                <target>取り消し</target>
             </trans-unit>
-            <trans-unit id="20" resname="CommonMenuItemCut">
+            <trans-unit id="1X4Uic5m5k_om0aIXQRTtA" resname="CommonMenuItemCut">
                <source>Cut</source>
                <target>カット</target>
             </trans-unit>
-            <trans-unit id="21" resname="CommonMenuItemCopy">
+            <trans-unit id="CTexSmUbS6a10oFqn5GUdw" resname="CommonMenuItemCopy">
                <source>Copy</source>
                <target>コピー</target>
             </trans-unit>
-            <trans-unit id="22" resname="CommonMenuItemPaste">
+            <trans-unit id="fzDmWDhVBz8s_KGu6_b3sg" resname="CommonMenuItemPaste">
                <source>Paste</source>
                <target>ペースト</target>
             </trans-unit>
-            <trans-unit id="23" resname="CommonMenuItemClear">
+            <trans-unit id="1wxes+wJJpyK+_FFyYkULg" resname="CommonMenuItemClear">
                <source>Clear</source>
                <target>クリア</target>
             </trans-unit>
-            <trans-unit id="24" resname="CommonMenuItemSelectAll">
+            <trans-unit id="_xzuWcFPOh+gAVXJZ5KZtw" resname="CommonMenuItemSelectAll">
                <source>Select All</source>
                <target>すべてを選択</target>
             </trans-unit>
-            <trans-unit id="25" resname="CommonMenuItemShowClipboard">
+            <trans-unit id="y8dwJ0gOeEqCZXfGW20HNA" resname="CommonMenuItemShowClipboard">
                <source>Show Clipboard</source>
                <target>クリップボード表示</target>
             </trans-unit>
-            <trans-unit id="30" resname="CommonMenuItemQuit">
+            <trans-unit id="_YdZ536W7ZII12AKzYZ+1A" resname="CommonMenuItemQuit">
                <source>Quit</source>
                <target>終了</target>
             </trans-unit>
-            <trans-unit id="37" resname="CommonMenuItemNew">
+            <trans-unit id="lszIPwHy9C01LYNUuG8i8A" resname="CommonMenuItemNew">
                <source>New...</source>
                <target>新規...</target>
             </trans-unit>
-            <trans-unit id="38" resname="CommonMenuItemOpen">
+            <trans-unit id="Cjb1v6MIhDe09uN6n9dDdQ" resname="CommonMenuItemOpen">
                <source>Open...</source>
                <target>開く...</target>
             </trans-unit>
-            <trans-unit id="39" resname="CommonMenuItemSave">
+            <trans-unit id="yTJv3avE3PBcLJkDt993KA" resname="CommonMenuItemSave">
                <source>Save</source>
                <target>保存</target>
             </trans-unit>
-            <trans-unit id="40" resname="CommonMenuItemRevertToSave">
+            <trans-unit id="0UfFuxosujz5MfZRvs6xGg" resname="CommonMenuItemRevertToSave">
                <source>Revert to save</source>
                <target>保存された状態に戻る</target>
             </trans-unit>
-            <trans-unit id="41" resname="CommonMenuItemClose">
+            <trans-unit id="8W53kXKRCtxehA7C_yLUyA" resname="CommonMenuItemClose">
                <source>Close</source>
                <target>閉じる</target>
             </trans-unit>
          </group>
          <group id="1000" resname="Buttons">
-            <trans-unit id="1" resname="CommonOK">
+            <trans-unit id="foOSp73yBYWW_lwyMpxy9w" resname="CommonOK">
                <source>OK</source>
                <target>OK</target>
             </trans-unit>
-            <trans-unit id="2" resname="CommonCancel">
+            <trans-unit id="uRSjCHETBDJu2QgmsTNz4A" resname="CommonCancel">
                <source>Cancel</source>
                <target>キャンセル</target>
             </trans-unit>
-            <trans-unit id="3" resname="CommonRetry">
+            <trans-unit id="aWFWkPqfWskGy2fHglVoTw" resname="CommonRetry">
                <source>Retry</source>
                <target>再試行</target>
             </trans-unit>
-            <trans-unit id="4" resname="CommonQuit">
+            <trans-unit id="WwglfXH8tEwEguwGjbm_fQ" resname="CommonQuit">
                <source>Quit</source>
                <target>終了</target>
             </trans-unit>
-            <trans-unit id="5" resname="CommonAdd">
+            <trans-unit id="hXC2g8KW+PXY1flD7nfrfQ" resname="CommonAdd">
                <source>Add</source>
                <target>追加</target>
             </trans-unit>
-            <trans-unit id="6" resname="CommonDelete">
+            <trans-unit id="rovGiDg+1nQIsN8bwun0Lg" resname="CommonDelete">
                <source>Delete</source>
                <target>削除</target>
             </trans-unit>
-            <trans-unit id="7" resname="CommonEdit">
+            <trans-unit id="g_Ol_ZEQxg1Aeq08AZfFSw" resname="CommonEdit">
                <source>Edit</source>
                <target>編集</target>
             </trans-unit>
-            <trans-unit id="9" resname="CommonDone">
+            <trans-unit id="we0UYMP+10pvDm1K47_ONg" resname="CommonDone">
                <source>Done</source>
                <target>終了</target>
             </trans-unit>
-            <trans-unit id="10" resname="CommonApply">
+            <trans-unit id="cVkvvsn57ADJ_IKLvP4sww" resname="CommonApply">
                <source>Apply</source>
                <target>適用</target>
             </trans-unit>
-            <trans-unit id="11" resname="CommonLoadDial">
+            <trans-unit id="i3yHykTLtoVUkZX1uQLylQ" resname="CommonLoadDial">
                <source>Load...</source>
                <target>読み込み...</target>
             </trans-unit>
-            <trans-unit id="12.1" resname="CommonSaveDial">
+            <trans-unit id="nuKsK0LIeMcLcrwNXWTyuA" resname="CommonSaveDial">
                <source>Save...</source>
                <target>保存...</target>
             </trans-unit>
-            <trans-unit id="13" resname="CommonOrderBy">
+            <trans-unit id="8VON3I1wIBqtjtlHwfu71A" resname="CommonOrderBy">
                <source>Order by</source>
                <target>並び替え</target>
             </trans-unit>
-            <trans-unit id="14" resname="CommonUse">
+            <trans-unit id="Vyebsbw4KojsVRyhz2BDag" resname="CommonUse">
                <source>Use</source>
                <target>使用</target>
             </trans-unit>
-            <trans-unit id="15" resname="CommonBack">
+            <trans-unit id="z_lG2VjOQ1BhW9KDr2UJ_w" resname="CommonBack">
                <source>&amp;lt; Back</source>
                <target>&amp;lt; 戻る</target>
             </trans-unit>
-            <trans-unit id="16" resname="CommonNext">
+            <trans-unit id="3hKc6ok4Cz+SsOwdmzqxGA" resname="CommonNext">
                <source>Next &amp;gt;</source>
                <target>次へ &amp;gt;</target>
             </trans-unit>
-            <trans-unit id="17" resname="CommonCreate">
+            <trans-unit id="okmQX+Z+C6kWIrhsAyyojQ" resname="CommonCreate">
                <source>Create</source>
                <target>作成</target>
             </trans-unit>
-            <trans-unit id="18" resname="CommonExportDial">
+            <trans-unit id="1rdspzycQKUFbDvRUsl62Q" resname="CommonExportDial">
                <source>Export...</source>
                <target>書き出し...</target>
             </trans-unit>
-            <trans-unit id="19" resname="CommonPreview">
+            <trans-unit id="MRRWyoV6c3KHDPrHh8HH7w" resname="CommonPreview">
                <source>Preview</source>
                <target>プレビュー</target>
             </trans-unit>
-            <trans-unit id="20" resname="CommonRemove">
+            <trans-unit id="nqeVHt_XzohJYJmwXACcUQ" resname="CommonRemove">
                <source>Remove</source>
                <target>削除</target>
             </trans-unit>
-            <trans-unit id="22" resname="CommonOpen">
+            <trans-unit id="06gyGRrvCdWv6BXe2PKS7w" resname="CommonOpen">
                <source>Open</source>
                <target>開く</target>
             </trans-unit>
-            <trans-unit id="23" resname="CommonClose">
+            <trans-unit id="Zzj+g61z2cYpuBBIrWzyVg" resname="CommonClose">
                <source>Close</source>
                <target>閉じる</target>
             </trans-unit>
-            <trans-unit id="24" resname="CommonExpandAll">
+            <trans-unit id="c5h5X1_QwQ1CS1oLuOMJHg" resname="CommonExpandAll">
                <source>Expand all</source>
                <target>すべて拡げる</target>
             </trans-unit>
-            <trans-unit id="25" resname="CommonCollapseAll">
+            <trans-unit id="WrwU0rEGQSpNe7wWA95N7g" resname="CommonCollapseAll">
                <source>Collapse all</source>
                <target>すべて閉じる</target>
             </trans-unit>
-            <trans-unit id="45" resname="CommonDuplicate">
+            <trans-unit id="aBVBycxcqDR_A1oDts+Tgg" resname="CommonDuplicate">
                <source>Duplicate</source>
                <target>複製</target>
             </trans-unit>
-            <trans-unit id="46" resname="CommonRename">
+            <trans-unit id="WmSZb5C0IEEaLDqTXpEVxw" resname="CommonRename">
                <source>Rename</source>
                <target>名前の変更</target>
             </trans-unit>
