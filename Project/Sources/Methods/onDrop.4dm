@@ -5,10 +5,6 @@
 // ----------------------------------------------------
 #DECLARE($data : Object)
 
-If (False:C215)
-	C_OBJECT:C1216(onDrop; $1)
-End if 
-
 var $bookmark; $name; $pathname; $root; $url : Text
 var $type : Integer
 

@@ -11,14 +11,9 @@
 // Modified by: vdl (1-9-2020)
 // Code rewrites
 // ----------------------------------------------------
-var $0 : Text
-
-If (False:C215)
-	C_TEXT:C284(getDataFilePath; $0)
-End if 
+#DECLARE() : Text
 
 var $onErrCall : Text
-
 var $file; $o : 4D:C1709.File
 
 $file:=Folder:C1567(fk user preferences folder:K87:10).file("4DPop_Bookmarks.xml")
@@ -31,29 +26,27 @@ If (Not:C34($file.exists))
 	
 	If ($o.exists)
 		
-		$onErrCall:=Method called on error:C704
-		ON ERR CALL:C155("NoError")
-		
-		// Copy file...
-		$o.copyTo(Folder:C1567(fk user preferences folder:K87:10))
-		
-		If ($file.exists)
+		Try
 			
-			// ... and delete the old one
-			$o.delete()
+			// Copy file...
+			$o.copyTo(Folder:C1567(fk user preferences folder:K87:10))
 			
-		End if 
-		
-		ON ERR CALL:C155($onErrCall)
-		
+			If ($file.exists)
+				
+				// ... and delete the old one
+				$o.delete()
+				
+			End if 
+			
+		End try
 	End if 
 End if 
 
 If (Not:C34(($file.exists)))
 	
 	// Get the defaults
-	$file:=File:C1566(Get localized document path:C1105("DefaultBookmarks.xml"); fk platform path:K87:2)
+	$file:=File:C1566(Localized document path:C1105("DefaultBookmarks.xml"); fk platform path:K87:2)
 	
 End if 
 
-$0:=$file.platformPath  // Bookmarks file
+return $file.platformPath  // Bookmarks file

@@ -2,18 +2,19 @@
 	"# 🚧 DEV": {},
 	"♻️ LIBRAIRIES": {
 		"classes": [
-			"menu"
+			"menu",
+			"menuBar"
 		]
 	},
 	"📦 COMPONENT": {
 		"methods": [
 			"CLOSE_WINDOW",
-			"COMPILER_main",
 			"doDrop",
 			"EDIT",
 			"getDataFilePath",
 			"lstb_ON_DOUBLE_CLIC",
 			"lstb_SET_SCROLLBAR",
+			"menuHandle",
 			"NoError",
 			"ParseFile",
 			"POSIX_Path"
@@ -25,8 +26,8 @@
 	"4️⃣ 4DPop": {
 		"methods": [
 			"_4DPopBookMarks",
-			"COMPILER _4DPop",
-			"doMenu"
+			"doMenu",
+			"onDrop"
 		]
 	},
 	"trash": {}
