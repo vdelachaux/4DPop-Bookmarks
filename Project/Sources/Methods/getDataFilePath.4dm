@@ -13,32 +13,30 @@
 // ----------------------------------------------------
 #DECLARE() : Text
 
-var $onErrCall : Text
-var $file; $o : 4D:C1709.File
-
-$file:=Folder:C1567(fk user preferences folder:K87:10).file("4DPop_Bookmarks.xml")
+var $file : 4D:C1709.File:=Folder:C1567(fk user preferences folder:K87:10).file("4DPop_Bookmarks.xml")
 
 // Added by vdl (06/05/08)
 // Try to get the file from the old localisation
 If (Not:C34($file.exists))
 	
-	$o:=Folder:C1567(fk licenses folder:K87:16).parent.file("4DPop_Bookmarks.xml")
+	var $old : 4D:C1709.File:=Folder:C1567(fk licenses folder:K87:16).parent.file("4DPop_Bookmarks.xml")
 	
-	If ($o.exists)
+	If ($old.exists)
 		
 		Try
 			
 			// Copy file...
-			$o.copyTo(Folder:C1567(fk user preferences folder:K87:10))
+			$old.copyTo(Folder:C1567(fk user preferences folder:K87:10))
 			
 			If ($file.exists)
 				
 				// ... and delete the old one
-				$o.delete()
+				$old.delete()
 				
 			End if 
 			
 		End try
+		
 	End if 
 End if 
 
