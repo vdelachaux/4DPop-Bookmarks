@@ -6,11 +6,7 @@
 	<dict>
 		<key>Resources/4DPop.json</key>
 		<data>
-		TBBYlDlGgWp2nRGb9Uq7Hmx+Bmc=
-		</data>
-		<key>Resources/4DPop.png</key>
-		<data>
-		/NWu+Bcm6TJOKiQLlPXAg1xENlQ=
+		kFFz5Fp2azP26M6Sq6WqQ2Yfv3I=
 		</data>
 		<key>Resources/DefaultBookmarks.xml</key>
 		<data>
@@ -18,7 +14,7 @@
 		</data>
 		<key>Resources/InfoPlist.strings</key>
 		<data>
-		H3ZKiEshd+9nIARPJC5zh5C/3+o=
+		5dXWkzulW4bmX5NsXowK2fMZ84U=
 		</data>
 		<key>Resources/en.lproj/Common.xlf</key>
 		<dict>
@@ -118,6 +114,10 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>Resources/logo.svg</key>
+		<data>
+		bMK88NxWL5ZjiMnjodYDZhB25mI=
+		</data>
 		<key>Resources/php.ini</key>
 		<data>
 		k19XBUSgTZQYyyqS4hg7ro0MBI8=
@@ -129,7 +129,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			hUCxJxcAdKsmkB8e/sxGntNXMB4=
+			13iOBeCDwPia0m/6p4J5Z/KvtOs=
 			</data>
 			<key>requirement</key>
 			<string>identifier "4DPop Bookmarks.4DZ" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = DYRKW64QA9</string>
@@ -138,21 +138,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DLSCa2sZitdHWggQgJ7dE7X4jNq55AEb5WTysP/0y9I=
+			qS26Pz5LyHmrU1MnwatDForVvEm8TW9XKOhb3uETHS8=
 			</data>
 		</dict>
 		<key>Resources/4DPop.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dLDgbvVmfgCX8AousZGQOP95ESPI5voW1CBjXdeyvOo=
-			</data>
-		</dict>
-		<key>Resources/4DPop.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			h9k0gw18ijEiztqvAh8kyyPU5u4+9NrHsp/GIKDuZ/8=
+			9Ppnonw5GQwF/pqNX80Cj5ooty8blYy30VVjg+D9JLI=
 			</data>
 		</dict>
 		<key>Resources/DefaultBookmarks.xml</key>
@@ -166,7 +159,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gbBFxwM1nI47/9Z2o7CIqf2cYBUEWuf9frT3Nrz7VvI=
+			rZE/ATGhN/hQ+J9gGp04s5kXR7TTyVa+4Zv77qQrs3s=
 			</data>
 		</dict>
 		<key>Resources/en.lproj/Common.xlf</key>
@@ -299,6 +292,13 @@
 			</data>
 			<key>optional</key>
 			<true/>
+		</dict>
+		<key>Resources/logo.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			cW1adRiAA28J8cpBpfYHyU+/3IJtOVYKex8cq/q/6eA=
+			</data>
 		</dict>
 		<key>Resources/php.ini</key>
 		<dict>
